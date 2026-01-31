@@ -92,3 +92,9 @@ document.getElementById("search").addEventListener("input", (e) => {
     juegosData.filter((j) => j.titulo.toLowerCase().includes(texto)),
   );
 });
+
+document.getElementById("clearFilters").addEventListener("click", () => {
+  document.getElementById("filterGenero").value = "todos";
+  document.getElementById("search").value = "";
+  mostrarJuegos(juegosData);
+});
