@@ -1,6 +1,6 @@
 let juegosData = [];
 
-/* Al cargar, bloquear scroll por advertencia */
+/* Bloquear scroll por advertencia inicial */
 document.body.classList.add("modal-open");
 
 fetch("data/juegos.json")
@@ -48,11 +48,10 @@ function abrirJuego(juego) {
     juego.instrucciones;
   document.getElementById("modalDescarga").href = juego.descarga;
 
-  // Imagen de fondo
-  const bgImg = document.getElementById("modalBgImage");
-  bgImg.src = juego.imagen;
+  /* Imagen fondo modal */
+  document.getElementById("modalBgImage").src = juego.imagen;
 
-  // +18
+  /* +18 */
   const adultBadge = document.getElementById("modalAdult");
   adultBadge.style.display = juego.adult ? "block" : "none";
 

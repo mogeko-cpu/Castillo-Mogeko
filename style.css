@@ -17,7 +17,6 @@ body {
   color: var(--text-main);
 }
 
-/* Bloqueo de scroll cuando hay modal */
 body.modal-open {
   overflow: hidden;
 }
@@ -36,7 +35,6 @@ header {
   text-align: center;
   padding: 30px 20px;
   background: var(--bg-dark);
-  backdrop-filter: blur(4px);
 }
 
 header h1 {
@@ -69,7 +67,6 @@ header p {
   background: #333;
   color: #fff;
   cursor: pointer;
-  font-family: inherit;
 }
 
 #clearFilters:hover {
@@ -108,7 +105,7 @@ header p {
   object-fit: cover;
 }
 
-/* +18 */
+/* +18 en card */
 .blur {
   filter: blur(6px) brightness(0.8);
 }
@@ -121,7 +118,7 @@ header p {
   padding: 4px 8px;
   border-radius: 8px;
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .card h3 {
@@ -130,7 +127,7 @@ header p {
   text-align: center;
 }
 
-/* Modal */
+/* Modal general */
 .modal {
   position: fixed;
   inset: 0;
@@ -146,82 +143,19 @@ header p {
   display: flex;
 }
 
-.modal-content {
-  background: #0f0f0f;
-  max-width: 420px;
-  width: 100%;
-  padding: 25px;
-  border-radius: 16px;
-  position: relative;
-  animation: pop 0.25s ease;
-}
-
-@keyframes pop {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.close {
-  position: absolute;
-  top: 12px;
-  right: 15px;
-  cursor: pointer;
-  color: var(--accent-soft);
-}
-
-.modal-content h2 {
-  margin-top: 0;
-  color: var(--accent);
-}
-
-.modal-content a {
-  display: block;
-  margin-top: 15px;
-  text-align: center;
-  padding: 10px;
-  background: var(--accent);
-  color: #000;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.modal-content a:hover {
-  background: var(--accent-soft);
-}
-
-/* Footer */
-footer {
-  background: var(--bg-dark);
-  text-align: center;
-  padding: 15px;
-  font-size: 0.85rem;
-  color: var(--text-soft);
-}
-
-footer a {
-  color: var(--accent);
-}
-
-/* Modal descarga con imagen de fondo */
+/* Modal descarga */
 .modal-download {
   position: relative;
   max-width: 420px;
   width: 100%;
-  background: #0f0f0f;
   padding: 25px;
   border-radius: 16px;
   text-align: center;
   overflow: hidden;
+  background: #0f0f0f;
 }
 
-/* Imagen de fondo */
+/* Fondo del modal */
 .modal-bg {
   position: absolute;
   inset: 0;
@@ -241,7 +175,15 @@ footer a {
   z-index: 1;
 }
 
-/* +18 badge */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  cursor: pointer;
+  color: var(--accent-soft);
+}
+
+/* Badge +18 en modal */
 .modal-adult {
   position: absolute;
   top: 15px;
@@ -252,6 +194,16 @@ footer a {
   font-size: 0.75rem;
   font-weight: 700;
   display: none;
+}
+
+.modal-download h2 {
+  margin-top: 10px;
+  color: var(--accent);
+}
+
+.modal-download p {
+  font-size: 0.95rem;
+  color: var(--text-soft);
 }
 
 /* Instrucciones */
@@ -284,9 +236,21 @@ footer a {
   box-shadow: 0 6px 20px rgba(185, 107, 255, 0.4);
 }
 
-/* Nota */
 .modal-note {
   margin-top: 12px;
   font-size: 0.75rem;
   opacity: 0.7;
+}
+
+/* Footer */
+footer {
+  background: var(--bg-dark);
+  text-align: center;
+  padding: 15px;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+footer a {
+  color: var(--accent);
 }
