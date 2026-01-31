@@ -99,7 +99,7 @@ header {
   position: absolute;
   inset: 0;
 
-  background-image: url("assets/images/fondo.png");
+  background-image: var(--modal-bg);
   background-size: cover;
   background-position: center;
 
