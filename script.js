@@ -1,96 +1,97 @@
-const juegos = [
-  {
-    titulo: "Castillo Mogeko",
-    genero: "terror",
-    descripcion: "Juego de terror psicologico creado por Deep-Sea Prisoner.",
-    instrucciones: "Extrae el parche y copialo en la carpeta del juego.",
-    imagen: "https://i.imgur.com/v5Z4GxN.jpg",
-    descarga: "https://ejemplo.com/descarga",
-  },
-];
+const juegosContainer = document.getElementById("juegos");
+const filterGenero = document.getElementById("filterGenero");
+const searchInput = document.getElementById("search");
+const clearFiltersBtn = document.getElementById("clearFilters");
 
-const contenedor = document.getElementById("juegos");
-const filtroGenero = document.getElementById("filterGenero");
-const search = document.getElementById("search");
-const clearBtn = document.getElementById("clearFilters");
+const warningModal = document.getElementById("warning");
+const acceptWarningBtn = document.getElementById("acceptWarning");
 
-/* MODALS */
 const gameModal = document.getElementById("gameModal");
-const modalBg = document.getElementById("modalBg");
+const closeGameBtn = document.getElementById("closeGame");
 
-function closeWarning() {
-  document.getElementById("warning").classList.remove("active");
-}
+let juegos = [];
 
-function closeGame() {
+acceptWarningBtn.addEventListener("click", () => {
+  warningModal.classList.remove("active");
+});
+
+closeGameBtn.addEventListener("click", () => {
   gameModal.classList.remove("active");
-}
+});
 
-/* Cargar generos */
+fetch("data/juegos.json")
+  .then((res) => res.json())
+  .then((data) => {
+    juegos = data;
+    cargarGeneros();
+    mostrarJuegos(juegos);
+  });
+
 function cargarGeneros() {
-  const generos = new Set(juegos.map((j) => j.genero));
+  const generos = new Set();
+
+  juegos.forEach((j) => j.generos.forEach((g) => generos.add(g)));
+
   generos.forEach((g) => {
-    const opt = document.createElement("option");
-    opt.value = g;
-    opt.textContent = g;
-    filtroGenero.appendChild(opt);
+    const option = document.createElement("option");
+    option.value = g;
+    option.textContent = g;
+    filterGenero.appendChild(option);
   });
 }
 
-/* Mostrar juegos */
 function mostrarJuegos(lista) {
-  contenedor.innerHTML = "";
+  juegosContainer.innerHTML = "";
+
   lista.forEach((juego) => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "card" + (juego.adult ? " adult" : "");
 
     card.innerHTML = `
       <img src="${juego.imagen}">
-      <h3>${juego.titulo}</h3>
+      <h4>${juego.titulo}</h4>
     `;
 
-    card.onclick = () => abrirModal(juego);
-    contenedor.appendChild(card);
+    card.onclick = () => abrirJuego(juego);
+    juegosContainer.appendChild(card);
   });
 }
 
-function abrirModal(juego) {
+function abrirJuego(juego) {
   document.getElementById("modalTitulo").textContent = juego.titulo;
-  document.getElementById("modalDescripcion").textContent = juego.descripcion;
+  document.getElementById("modalDescripcion").textContent =
+    juego.descripcionLarga;
   document.getElementById("modalInstrucciones").textContent =
     juego.instrucciones;
   document.getElementById("modalDescarga").href = juego.descarga;
+  document.getElementById("modalBg").style.backgroundImage =
+    `url(${juego.imagen})`;
 
-  modalBg.style.backgroundImage = `url(${juego.imagen})`;
   gameModal.classList.add("active");
 }
 
-/* Filtros */
 function aplicarFiltros() {
   let resultado = juegos;
 
-  if (filtroGenero.value !== "todos") {
-    resultado = resultado.filter((j) => j.genero === filtroGenero.value);
+  const texto = searchInput.value.toLowerCase();
+  const genero = filterGenero.value;
+
+  if (texto) {
+    resultado = resultado.filter((j) => j.titulo.toLowerCase().includes(texto));
   }
 
-  if (search.value.trim() !== "") {
-    resultado = resultado.filter((j) =>
-      j.titulo.toLowerCase().includes(search.value.toLowerCase()),
-    );
+  if (genero !== "todos") {
+    resultado = resultado.filter((j) => j.generos.includes(genero));
   }
 
   mostrarJuegos(resultado);
 }
 
-filtroGenero.addEventListener("change", aplicarFiltros);
-search.addEventListener("input", aplicarFiltros);
+searchInput.addEventListener("input", aplicarFiltros);
+filterGenero.addEventListener("change", aplicarFiltros);
 
-clearBtn.addEventListener("click", () => {
-  filtroGenero.value = "todos";
-  search.value = "";
+clearFiltersBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  filterGenero.value = "todos";
   mostrarJuegos(juegos);
 });
-
-/* INIT */
-cargarGeneros();
-mostrarJuegos(juegos);

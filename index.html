@@ -17,13 +17,13 @@
 
     <!-- Advertencia +18 -->
     <div id="warning" class="modal active">
-      <div class="modal-content warning-box">
+      <div class="modal-content">
         <h2>⚠ Advertencia</h2>
         <p>
-          Este sitio contiene juegos con contenido <strong>+18</strong>.<br />
-          Al continuar confirmas que eres mayor de edad.
+          Este sitio contiene juegos con contenido +18.<br />Confirma que eres
+          mayor de edad.
         </p>
-        <button onclick="closeWarning()">Entrar</button>
+        <button id="acceptWarning">Entrar</button>
       </div>
     </div>
 
@@ -44,14 +44,12 @@
 
     <main id="juegos" class="grid"></main>
 
-    <!-- Modal juego -->
+    <!-- Modal del juego -->
     <div id="gameModal" class="modal">
-      <div class="modal-bg" id="modalBg"></div>
-
       <div class="modal-content modal-download">
-        <span class="close" onclick="closeGame()">✖</span>
+        <span class="close" id="closeGame">✖</span>
 
-        <span class="badge-18">+18</span>
+        <div class="modal-bg" id="modalBg"></div>
 
         <h2 id="modalTitulo"></h2>
         <p id="modalDescripcion"></p>
@@ -65,7 +63,7 @@
           ⬇ Descargar parche
         </a>
 
-        <p class="modal-note">Este parche es una traduccion hecha por fans.</p>
+        <p class="modal-note">Traduccion hecha por fans, sin fines de lucro.</p>
       </div>
     </div>
 
@@ -74,6 +72,7 @@
         📩 Reportar errores:
         <a href="https://x.com/TU_USUARIO" target="_blank">X / Twitter</a>
       </p>
+      <p>🎨 Fondos y recursos visuales pertenecen a sus autores.</p>
     </footer>
 
     <script src="script.js"></script>
