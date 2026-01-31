@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let gamesData = [];
 
-  fetch("games.json")
+  fetch("data/games.json")
     .then((res) => res.json())
     .then((data) => {
       gamesData = data;
