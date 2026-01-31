@@ -171,11 +171,11 @@ header p {
   position: absolute;
   top: 14px;
   right: 16px;
+  z-index: 20;
   font-size: 1.2rem;
   cursor: pointer;
   color: #fff;
-  z-index: 10; /* 🔥 CLAVE */
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   padding: 6px 9px;
   border-radius: 50%;
   line-height: 1;
@@ -246,7 +246,7 @@ footer a {
 }
 
 /* Contenido encima */
-.modal-download > * {
+.modal-download > *:not(.close) {
   position: relative;
   z-index: 1;
 }
