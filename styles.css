@@ -1,189 +1,78 @@
-/* =========================
-   FONDO GENERAL DIFUMINADO
-========================= */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  background-image: url("assets/images/fondo.png");
-  background-size: cover;
-  background-position: center;
-
-  filter: blur(12px);
-  transform: scale(1.1);
-
-  z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.65);
-
-  z-index: -1;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #eee;
   margin: 0;
-  position: relative;
-}
-
-/* =========================
-   HEADER
-========================= */
-header {
-  text-align: center;
-  padding: 20px;
-}
-
-/* =========================
-   LISTA DE JUEGOS
-========================= */
-.game-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-}
-
-.game-card {
-  background: rgba(30, 30, 30, 0.75);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-
-  padding: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-  position: relative;
-
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-}
-
-.game-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-
-.tags {
-  font-size: 0.9em;
-  color: #bbb;
-}
-
-.blurred {
-  filter: blur(8px) brightness(0.7);
-}
-
-.adult-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* =========================
-   MODAL
-========================= */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  position: relative;
-  overflow: hidden;
-
-  background: rgba(0, 0, 0, 0.75);
-  border-radius: 12px;
-  padding: 20px;
-  max-width: 700px;
-  width: 90%;
-
+  font-family: Arial, sans-serif;
   color: #fff;
 }
 
-/* fondo del modal con imagen */
-.modal-content::before {
-  content: "";
-  position: absolute;
+.background {
+  position: fixed;
   inset: 0;
-
-  background-image: var(--modal-bg);
-  background-size: cover;
-  background-position: center;
-
-  filter: blur(10px);
-  opacity: 0.35;
-  transform: scale(1.1);
-
-  z-index: 0;
+  background: url("assets/images/fondo.jpg") center/cover no-repeat;
+  filter: blur(8px);
+  z-index: -1;
 }
 
-/* capa extra oscura */
-.modal-content::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+header {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-/* contenido por encima del fondo */
-.modal-content > * {
-  position: relative;
-  z-index: 2;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.blur {
+  filter: blur(6px);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #111;
+  padding: 20px;
+  max-width: 400px;
+  border-radius: 10px;
 }
 
 .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  float: right;
   cursor: pointer;
-  font-size: 24px;
 }
 
-/* =========================
-   ADVERTENCIA +18
-========================= */
-.overlay {
-  position: fixed;
-  inset: 0;
-
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 9999;
-}
-
-.warning-box {
-  background: #222;
-  padding: 30px;
+footer {
+  background: rgba(0, 0, 0, 0.7);
   text-align: center;
-  border-radius: 10px;
-  max-width: 400px;
-}
-
-body.locked {
-  overflow: hidden;
+  padding: 10px;
 }
