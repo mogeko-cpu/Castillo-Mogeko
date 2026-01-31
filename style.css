@@ -135,11 +135,10 @@ header p {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.9);
-  display: flex;
+  display: none;
   justify-content: center;
-  align-items: flex-start; /* 🔥 NO CENTER */
-  padding: 40px 20px;
-  overflow-y: auto; /* 🔥 */
+  align-items: center;
+  padding: 20px;
   z-index: 99999;
 }
 
@@ -225,16 +224,17 @@ footer a {
   position: relative;
   max-width: 720px;
   width: 100%;
-  height: 85vh;
+  height: 85vh; /* 🔥 altura fija */
   background: #0f0f0f;
   border-radius: 18px;
-  overflow: hidden;
+  overflow: hidden; /* IMPORTANTE */
   display: flex;
   flex-direction: column;
 }
 
 /* Imagen de fondo */
 .modal-bg {
+  position: relative;
   height: 240px;
   flex-shrink: 0;
   overflow: hidden;
@@ -248,10 +248,10 @@ footer a {
 }
 
 .modal-body {
-  flex: 1;
-  min-height: 0; /* 🔥 obligatoria */
-  overflow-y: auto;
   padding: 25px 30px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 /* Contenido encima */
