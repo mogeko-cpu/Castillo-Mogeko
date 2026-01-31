@@ -3,7 +3,7 @@
     "id": "C-T",
     "titulo": "Clinical Trial",
     "creador": "Hommie",
-    "generos": ["RPG", "Horror psicológico", "VN"],
+    "generos": ["RPG", "Horror", "VN"],
     "descripcionCorta": "Historia de suspenso donde te inscribes a una prueba clínica por dinero.",
     "descripcionLarga": "En este juego sigues a angel, un joven con TDAH que se inscribe en una prueba clínica para ganar dinero. Sin embargo, las cosas se tornan oscuras al pasar de los dias.",
     "adult": false,
@@ -12,15 +12,15 @@
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
   },
   {
-    "id": "vn-18",
-    "titulo": "VN +18 Ejemplo",
-    "creador": "Creador Ejemplo",
-    "generos": ["VN", "Drama"],
-    "descripcionCorta": "Descripcion breve del juego +18.",
-    "descripcionLarga": "Descripcion completa del juego +18.",
+    "id": "Y-S",
+    "titulo": "YKMET: Strade",
+    "creador": "Gatobob/dirtymurdergames",
+    "generos": ["VN", "Horror", "NSFW", "Gore"],
+    "descripcionCorta": "Despues de un largo dia, decides tomar un trago en un bar ¿Que podria salir mal?",
+    "descripcionLarga": "Decides tomar un trago en un bar, pero un hombre apuesto se coloca enfrente tuyo para socializar un poco, quien diria que esto tomaria un rumbo tan oscuro...",
     "adult": true,
     "imagen": "assets/images/juegos/vn-18.jpg",
-    "descarga": "https://ejemplo.com/patch18.zip",
-    "instrucciones": "Aqui van las instrucciones del parche +18."
+    "descarga": "https://drive.google.com/drive/folders/1JEdwbizBom2A95GooUWuHzoAn3lZ_D1b",
+    "instrucciones": "Este es un parche para el juego YKMET [Debes comprarlo en Steam o Itchio. Descarga el archivo, descomprímelo [con winrar] y copia los archivos en la carpeta llamada 'Game' para aplicar el parche."
   }
 ]
