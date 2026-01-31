@@ -1,256 +1,156 @@
-:root {
-  --bg-dark: rgba(0, 0, 0, 0.65);
-  --card-bg: rgba(20, 20, 20, 0.85);
-  --accent: #b96bff;
-  --accent-soft: #e2c6ff;
-  --text-main: #ffffff;
-  --text-soft: #cfcfcf;
-}
-
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  color: var(--text-main);
+  color: #fff;
+  min-height: 100vh;
 }
 
-body.modal-open {
-  overflow: hidden;
-}
-
-/* Fondo */
 .background {
   position: fixed;
   inset: 0;
-  background: url("assets/images/fondo.jpg") center/cover no-repeat;
-  filter: blur(10px) brightness(0.6);
+  background: linear-gradient(135deg, #1b0f24, #0b0514);
   z-index: -1;
 }
 
 /* Header */
 header {
   text-align: center;
-  padding: 30px 20px;
-  background: var(--bg-dark);
+  padding: 2rem 1rem;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2.2rem;
+.filters {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-header p {
-  margin-top: 8px;
-  color: var(--accent-soft);
-}
-
-/* Controles */
-#filterGenero,
-#search {
-  margin-top: 15px;
-  padding: 8px 12px;
+.filters input,
+.filters select,
+.filters button {
+  padding: 0.6rem;
   border-radius: 8px;
   border: none;
-  background: #111;
-  color: #fff;
-  font-family: inherit;
 }
 
-#clearFilters {
-  margin-left: 10px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  background: #333;
-  color: #fff;
+.filters button {
+  background: #7a3cff;
+  color: white;
   cursor: pointer;
-}
-
-#clearFilters:hover {
-  background: var(--accent);
-  color: #000;
 }
 
 /* Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 24px;
-  padding: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
 }
 
-/* Cards */
 .card {
-  background: var(--card-bg);
-  border-radius: 14px;
+  background: #24152f;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
-  position: relative;
+  transition: transform 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
 
 .card img {
   width: 100%;
-  height: 260px;
+  height: 180px;
   object-fit: cover;
 }
 
-/* +18 en card */
-.blur {
-  filter: blur(6px) brightness(0.8);
-}
-
-.badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #ff4d4d;
-  padding: 4px 8px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
 .card h3 {
-  margin: 12px;
+  padding: 0.8rem;
   font-size: 1rem;
-  text-align: center;
 }
 
 /* Modal general */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
   display: none;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  z-index: 99999;
+  justify-content: center;
+  z-index: 9999;
 }
 
 .modal.active {
   display: flex;
 }
 
-/* Modal descarga */
-.modal-download {
-  position: relative;
-  max-width: 420px;
-  width: 100%;
-  padding: 25px;
-  border-radius: 16px;
-  text-align: center;
-  overflow: hidden;
-  background: #0f0f0f;
-}
-
-/* Fondo del modal */
+/* Fondo difuminado */
 .modal-bg {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.4);
 }
 
-.modal-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(8px) brightness(0.25);
-}
-
-/* Contenido encima */
-.modal-download > * {
+/* Modal contenido */
+.modal-content {
   position: relative;
+  background: #1d1027;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
   z-index: 1;
+}
+
+/* +18 badge */
+.badge-18 {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: crimson;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Botones */
+.download-btn {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.7rem;
+  background: #7a3cff;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
 }
 
 .close {
   position: absolute;
-  top: 12px;
-  right: 15px;
+  top: 10px;
+  left: 10px;
   cursor: pointer;
-  color: var(--accent-soft);
 }
 
-/* Badge +18 en modal */
-.modal-adult {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: #ff4d4d;
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  display: none;
-}
-
-.modal-download h2 {
-  margin-top: 10px;
-  color: var(--accent);
-}
-
-.modal-download p {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-}
-
-/* Instrucciones */
-.modal-instrucciones {
-  margin: 15px 0;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.55);
-  border-radius: 10px;
-  text-align: left;
-  font-size: 0.9rem;
-}
-
-/* Boton descarga */
-.download-btn {
-  display: block;
-  margin-top: 15px;
-  padding: 12px;
-  background: var(--accent);
-  color: #000;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 700;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.download-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(185, 107, 255, 0.4);
-}
-
-.modal-note {
-  margin-top: 12px;
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-
-/* Footer */
-footer {
-  background: var(--bg-dark);
+/* Advertencia */
+.warning-box {
   text-align: center;
-  padding: 15px;
-  font-size: 0.85rem;
-  color: var(--text-soft);
 }
 
-footer a {
-  color: var(--accent);
+.warning-box button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: crimson;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
 }

@@ -3,71 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <title>Castillo Mogeko</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
+    <!-- Fondo -->
+    <div class="background"></div>
+
     <!-- Advertencia +18 -->
-    <div id="warning" class="warning">
-      <div class="warning-box">
+    <div id="warning" class="modal active">
+      <div class="modal-content warning-box">
         <h2>⚠ Advertencia</h2>
         <p>
-          Esta pagina contiene juegos con contenido +18. Al continuar confirmas
-          que eres mayor de edad.
+          Este sitio contiene juegos con contenido <strong>+18</strong>.<br />
+          Al continuar confirmas que eres mayor de edad.
         </p>
-        <button onclick="acceptWarning()">Entrar</button>
+        <button onclick="closeWarning()">Entrar</button>
       </div>
     </div>
 
     <header>
       <h1>🏰 Castillo Mogeko</h1>
-      <p>Traducciones hechas por fans</p>
+      <p>Traducciones de juegos hechas con amor 💜</p>
 
       <div class="filters">
-        <select id="genreFilter" onchange="filterGames()">
-          <option value="">Filtrar por genero</option>
+        <input type="text" id="search" placeholder="Buscar juego..." />
+
+        <select id="filterGenero">
+          <option value="todos">Todos los generos</option>
         </select>
-        <button onclick="resetFilter()">Ver todos</button>
+
+        <button id="clearFilters">Ver todos</button>
       </div>
     </header>
 
-    <main id="games" class="grid"></main>
+    <main id="juegos" class="grid"></main>
 
-    <footer>
-      <p>
-        Contacto:
-        <a href="https://x.com/TU_USUARIO" target="_blank">X / Twitter</a>
-      </p>
-      <p class="credits">
-        Fondo e imagenes pertenecen a sus respectivos autores.
-      </p>
-    </footer>
-
-    <!-- Modal de descarga -->
+    <!-- Modal juego -->
     <div id="gameModal" class="modal">
+      <div class="modal-bg" id="modalBg"></div>
+
       <div class="modal-content modal-download">
         <span class="close" onclick="closeGame()">✖</span>
 
-        <div id="modalBg" class="modal-bg"></div>
+        <span class="badge-18">+18</span>
 
-        <div class="modal-inner">
-          <h2 id="modalTitulo"></h2>
-          <span id="adultIcon" class="modal-adult">+18</span>
+        <h2 id="modalTitulo"></h2>
+        <p id="modalDescripcion"></p>
 
-          <p id="modalDescripcion"></p>
-
-          <div class="modal-instrucciones">
-            <strong>📦 Instrucciones del parche</strong>
-            <p id="modalInstrucciones"></p>
-          </div>
-
-          <a id="modalDescarga" target="_blank" class="download-btn">
-            ⬇ Descargar parche
-          </a>
-
-          <p class="modal-note">Traduccion hecha por fans.</p>
+        <div class="modal-instrucciones">
+          <strong>📦 Instrucciones del parche</strong>
+          <p id="modalInstrucciones"></p>
         </div>
+
+        <a id="modalDescarga" target="_blank" class="download-btn">
+          ⬇ Descargar parche
+        </a>
+
+        <p class="modal-note">Este parche es una traduccion hecha por fans.</p>
       </div>
     </div>
+
+    <footer>
+      <p>
+        📩 Reportar errores:
+        <a href="https://x.com/TU_USUARIO" target="_blank">X / Twitter</a>
+      </p>
+    </footer>
 
     <script src="script.js"></script>
   </body>
