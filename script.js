@@ -45,10 +45,8 @@ function openModal(game) {
   const modal = document.getElementById("modal");
   const content = modal.querySelector(".modal-content");
 
-  // fondo del modal
+  // 👇 ESTA LINEA ES CRITICA
   content.style.setProperty("--modal-bg", `url(${game.imagen})`);
-
-  content.style.backgroundImage = `url(${game.imagen})`;
 
   document.getElementById("modal-title").textContent = game.titulo;
   document.getElementById("modal-tags").textContent = game.generos.join(" · ");
