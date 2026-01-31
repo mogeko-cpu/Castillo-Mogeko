@@ -1,5 +1,8 @@
 let juegosData = [];
 
+/* Al cargar, bloquear scroll por advertencia */
+document.body.classList.add("modal-open");
+
 fetch("data/juegos.json")
   .then((res) => res.json())
   .then((data) => {
@@ -19,21 +22,13 @@ function mostrarJuegos(lista) {
 
     const img = document.createElement("img");
     img.src = juego.imagen;
+
     if (juego.adult) {
       img.classList.add("blur");
 
       const badge = document.createElement("div");
+      badge.className = "badge";
       badge.textContent = "+18";
-      badge.style.position = "absolute";
-      badge.style.top = "10px";
-      badge.style.right = "10px";
-      badge.style.background = "#ff4d4d";
-      badge.style.padding = "4px 8px";
-      badge.style.borderRadius = "8px";
-      badge.style.fontSize = "0.8rem";
-      badge.style.fontWeight = "600";
-
-      card.style.position = "relative";
       card.appendChild(badge);
     }
 
@@ -54,14 +49,17 @@ function abrirJuego(juego) {
   document.getElementById("modalDescarga").href = juego.descarga;
 
   document.getElementById("gameModal").classList.add("active");
+  document.body.classList.add("modal-open");
 }
 
 function closeGame() {
   document.getElementById("gameModal").classList.remove("active");
+  document.body.classList.remove("modal-open");
 }
 
 function closeWarning() {
   document.getElementById("warning").classList.remove("active");
+  document.body.classList.remove("modal-open");
 }
 
 function cargarGeneros(data) {
@@ -77,24 +75,32 @@ function cargarGeneros(data) {
     select.appendChild(option);
   });
 
-  select.onchange = () => {
-    if (select.value === "todos") {
-      mostrarJuegos(juegosData);
-    } else {
-      mostrarJuegos(juegosData.filter((j) => j.generos.includes(select.value)));
-    }
-  };
+  select.onchange = aplicarFiltros;
 }
 
-document.getElementById("search").addEventListener("input", (e) => {
-  const texto = e.target.value.toLowerCase();
-  mostrarJuegos(
-    juegosData.filter((j) => j.titulo.toLowerCase().includes(texto)),
-  );
-});
+/* Buscador */
+document.getElementById("search").addEventListener("input", aplicarFiltros);
 
+/* Limpiar filtros */
 document.getElementById("clearFilters").addEventListener("click", () => {
   document.getElementById("filterGenero").value = "todos";
   document.getElementById("search").value = "";
   mostrarJuegos(juegosData);
 });
+
+function aplicarFiltros() {
+  const genero = document.getElementById("filterGenero").value;
+  const texto = document.getElementById("search").value.toLowerCase();
+
+  let filtrados = juegosData;
+
+  if (genero !== "todos") {
+    filtrados = filtrados.filter((j) => j.generos.includes(genero));
+  }
+
+  if (texto) {
+    filtrados = filtrados.filter((j) => j.titulo.toLowerCase().includes(texto));
+  }
+
+  mostrarJuegos(filtrados);
+}
