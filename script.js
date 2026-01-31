@@ -38,16 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lista.forEach((juego) => {
       const card = document.createElement("div");
-      card.className = "game-card";
+      card.className = "card";
 
-      if (juego.adult) card.classList.add("adult");
+      const imgClass = juego.adult ? "blur" : "";
 
       card.innerHTML = `
-        <img src="${juego.imagen}" alt="${juego.titulo}">
-        ${juego.adult ? `<span class="adult-badge">+18</span>` : ""}
-        <h3>${juego.titulo}</h3>
-        <p>${juego.descripcionCorta}</p>
-      `;
+  <img src="${juego.imagen}" class="${imgClass}" alt="${juego.titulo}">
+  ${juego.adult ? `<span class="badge">+18</span>` : ""}
+  <h3>${juego.titulo}</h3>
+`;
+
+      card.onclick = () => abrirJuego(juego);
+      gamesContainer.appendChild(card);
 
       card.onclick = () => abrirJuego(juego);
       gamesContainer.appendChild(card);
@@ -83,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modalDescarga").href = juego.descarga;
 
     const bg = document.getElementById("modalBg");
-    bg.style.backgroundImage = `url(${juego.imagen})`;
+    bg.innerHTML = `<img src="${juego.imagen}" alt="">`;
 
     const adultIcon = document.getElementById("adultIcon");
     adultIcon.style.display = juego.adult ? "inline-block" : "none";
