@@ -1,0 +1,22 @@
+[
+  {
+    "id": "juego-ejemplo",
+    "titulo": "Juego Ejemplo",
+    "generos": ["RPG", "Fantasia"],
+    "descripcionCorta": "Descripcion corta del juego.",
+    "descripcionLarga": "Descripcion mas detallada del juego.",
+    "adult": false,
+    "descarga": "https://ejemplo.com/patch.zip",
+    "instrucciones": "Aqui explicas donde va el parche."
+  },
+  {
+    "id": "vn-18",
+    "titulo": "VN +18 Ejemplo",
+    "generos": ["VN", "Drama"],
+    "descripcionCorta": "Descripcion breve del juego +18.",
+    "descripcionLarga": "Descripcion completa del juego +18.",
+    "adult": true,
+    "descarga": "https://ejemplo.com/patch18.zip",
+    "instrucciones": "Aqui van las instrucciones del parche +18."
+  }
+]
