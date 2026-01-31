@@ -17,6 +17,11 @@ body {
   color: var(--text-main);
 }
 
+/* Bloqueo de scroll cuando hay modal */
+body.modal-open {
+  overflow: hidden;
+}
+
 /* Fondo */
 .background {
   position: fixed;
@@ -44,8 +49,9 @@ header p {
   color: var(--accent-soft);
 }
 
-/* Filtro */
-#filterGenero {
+/* Controles */
+#filterGenero,
+#search {
   margin-top: 15px;
   padding: 8px 12px;
   border-radius: 8px;
@@ -53,6 +59,22 @@ header p {
   background: #111;
   color: #fff;
   font-family: inherit;
+}
+
+#clearFilters {
+  margin-left: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#clearFilters:hover {
+  background: var(--accent);
+  color: #000;
 }
 
 /* Grid */
@@ -63,7 +85,7 @@ header p {
   padding: 30px;
 }
 
-/* Card */
+/* Cards */
 .card {
   background: var(--card-bg);
   border-radius: 14px;
@@ -72,6 +94,7 @@ header p {
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
+  position: relative;
 }
 
 .card:hover {
@@ -90,7 +113,17 @@ header p {
   filter: blur(6px) brightness(0.8);
 }
 
-/* Titulo card */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4d;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 .card h3 {
   margin: 12px;
   font-size: 1rem;
@@ -101,11 +134,12 @@ header p {
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.9);
   display: none;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  z-index: 99999;
 }
 
 .modal.active {
@@ -118,6 +152,7 @@ header p {
   width: 100%;
   padding: 25px;
   border-radius: 16px;
+  position: relative;
   animation: pop 0.25s ease;
 }
 
@@ -133,7 +168,9 @@ header p {
 }
 
 .close {
-  float: right;
+  position: absolute;
+  top: 12px;
+  right: 15px;
   cursor: pointer;
   color: var(--accent-soft);
 }
@@ -172,12 +209,59 @@ footer a {
   color: var(--accent);
 }
 
-#search {
-  margin-top: 10px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
-  background: #111;
-  color: #fff;
-  font-family: inherit;
+/* Modal de descarga */
+.modal-download {
+  max-width: 420px;
+  width: 100%;
+  background: #0f0f0f;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.modal-download h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.modal-download p {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+/* Instrucciones */
+.modal-instrucciones {
+  margin: 15px 0;
+  padding: 12px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+/* Boton descarga */
+.download-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 12px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(185, 107, 255, 0.4);
+}
+
+/* Nota */
+.modal-note {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  opacity: 0.6;
 }

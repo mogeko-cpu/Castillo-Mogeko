@@ -31,6 +31,7 @@
 
       <select id="filterGenero">
         <input type="text" id="search" placeholder="Buscar juego..." />
+        <button id="clearFilters">Ver todos</button>
         <option value="todos">Todos los generos</option>
       </select>
     </header>
@@ -39,12 +40,23 @@
 
     <!-- Modal juego -->
     <div id="gameModal" class="modal">
-      <div class="modal-content">
+      <div class="modal-content modal-download">
         <span class="close" onclick="closeGame()">✖</span>
+
         <h2 id="modalTitulo"></h2>
+
         <p id="modalDescripcion"></p>
-        <p id="modalInstrucciones"></p>
-        <a id="modalDescarga" target="_blank">Descargar parche</a>
+
+        <div class="modal-instrucciones">
+          <strong>📦 Instrucciones del parche</strong>
+          <p id="modalInstrucciones"></p>
+        </div>
+
+        <a id="modalDescarga" target="_blank" class="download-btn">
+          ⬇ Descargar parche
+        </a>
+
+        <p class="modal-note">Este parche es una traduccion hecha por fans.</p>
       </div>
     </div>
 
