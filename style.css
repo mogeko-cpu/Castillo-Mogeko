@@ -208,3 +208,60 @@ footer {
 footer a {
   color: var(--accent);
 }
+
+/* Modal de descarga */
+.modal-download {
+  max-width: 420px;
+  width: 100%;
+  background: #0f0f0f;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.modal-download h2 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.modal-download p {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+/* Instrucciones */
+.modal-instrucciones {
+  margin: 15px 0;
+  padding: 12px;
+  background: #1a1a1a;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+/* Boton descarga */
+.download-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 12px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(185, 107, 255, 0.4);
+}
+
+/* Nota */
+.modal-note {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
