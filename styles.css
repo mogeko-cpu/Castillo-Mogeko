@@ -1,4 +1,6 @@
-/* FONDO DIFUMINADO */
+/* =========================
+   FONDO GENERAL DIFUMINADO
+========================= */
 body::before {
   content: "";
   position: fixed;
@@ -9,7 +11,7 @@ body::before {
   background-position: center;
 
   filter: blur(12px);
-  transform: scale(1.1); /* evita bordes al hacer blur */
+  transform: scale(1.1);
 
   z-index: -2;
 }
@@ -19,7 +21,7 @@ body::after {
   position: fixed;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.65); /* oscurece */
+  background: rgba(0, 0, 0, 0.65);
 
   z-index: -1;
 }
@@ -32,11 +34,17 @@ body {
   position: relative;
 }
 
+/* =========================
+   HEADER
+========================= */
 header {
   text-align: center;
   padding: 20px;
 }
 
+/* =========================
+   LISTA DE JUEGOS
+========================= */
 .game-list {
   display: flex;
   flex-direction: column;
@@ -87,13 +95,33 @@ header {
   text-transform: uppercase;
 }
 
-/* MODAL */
+/* =========================
+   MODAL
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 .modal-content {
   position: relative;
   overflow: hidden;
+
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 700px;
+  width: 90%;
+
+  color: #fff;
 }
 
-/* fondo con imagen */
+/* fondo del modal con imagen */
 .modal-content::before {
   content: "";
   position: absolute;
@@ -103,47 +131,49 @@ header {
   background-size: cover;
   background-position: center;
 
-  filter: blur(10px) brightness(0.6);
+  filter: blur(10px);
+  opacity: 0.35;
   transform: scale(1.1);
 
   z-index: 0;
 }
 
-/* capa oscura extra */
+/* capa extra oscura */
 .modal-content::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
-/* contenido encima del fondo */
+/* contenido por encima del fondo */
 .modal-content > * {
   position: relative;
   z-index: 2;
 }
 
 .close {
-  float: right;
+  position: absolute;
+  top: 10px;
+  right: 15px;
   cursor: pointer;
   font-size: 24px;
 }
 
-/* ADVERTENCIA */
+/* =========================
+   ADVERTENCIA +18
+========================= */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
 
   background: rgba(0, 0, 0, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
 
-  z-index: 9999; /* CLAVE */
+  z-index: 9999;
 }
 
 .warning-box {
