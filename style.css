@@ -246,7 +246,7 @@ footer a {
 }
 
 /* Contenido encima */
-.modal-download > *:not(.close) {
+.modal-download > *:not(.close):not(.modal-adult) {
   position: relative;
   z-index: 1;
 }
@@ -254,13 +254,15 @@ footer a {
 /* +18 badge */
 .modal-adult {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  top: 14px;
+  left: 16px;
+  z-index: 15;
   background: #ff4d4d;
-  padding: 4px 10px;
+  padding: 5px 10px;
   border-radius: 10px;
   font-size: 0.75rem;
   font-weight: 700;
+  color: #fff;
   display: none;
 }
 
