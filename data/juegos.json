@@ -2,6 +2,7 @@
   {
     "id": "C-T",
     "titulo": "Clinical Trial",
+    "creador": "Hommie",
     "generos": ["RPG", "Horror psicológico", "VN"],
     "descripcionCorta": "Historia de suspenso donde te inscribes a una prueba clínica por dinero.",
     "descripcionLarga": "En este juego sigues a angel, un joven con TDAH que se inscribe en una prueba clínica para ganar dinero. Sin embargo, las cosas se tornan oscuras al pasar de los dias.",
@@ -13,6 +14,7 @@
   {
     "id": "vn-18",
     "titulo": "VN +18 Ejemplo",
+    "creador": "Creador Ejemplo",
     "generos": ["VN", "Drama"],
     "descripcionCorta": "Descripcion breve del juego +18.",
     "descripcionLarga": "Descripcion completa del juego +18.",

@@ -58,6 +58,12 @@ function abrirJuego(juego) {
 
   document.getElementById("gameModal").classList.add("active");
   document.body.classList.add("modal-open");
+
+  document.getElementById("modalGeneros").textContent =
+    "Generos: " + juego.generos.join(", ");
+
+  document.getElementById("modalCreador").textContent =
+    "Creador: " + (juego.creador || "Desconocido");
 }
 
 function closeGame() {
