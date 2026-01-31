@@ -15,13 +15,19 @@
 
     <!-- Advertencia +18 -->
     <div id="warning" class="modal active">
-      <div class="modal-content">
-        <h2>Advertencia</h2>
+      <div class="modal-content warning-box">
+        <h2>⚠ Advertencia</h2>
         <p>
-          Este sitio contiene juegos con contenido +18. Al continuar confirmas
-          que eres mayor de edad.
+          Este sitio contiene juegos con contenido +18.
+          <br />
+          Al continuar confirmas que eres mayor de edad.
         </p>
-        <button onclick="closeWarning()">Entrar</button>
+
+        <div class="warning-actions">
+          <button class="warning-accept" onclick="closeWarning()">
+            ✔ Soy mayor de edad
+          </button>
+        </div>
       </div>
     </div>
 
