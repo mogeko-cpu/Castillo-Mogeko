@@ -19,7 +19,23 @@ function mostrarJuegos(lista) {
 
     const img = document.createElement("img");
     img.src = juego.imagen;
-    if (juego.adult) img.classList.add("blur");
+    if (juego.adult) {
+      img.classList.add("blur");
+
+      const badge = document.createElement("div");
+      badge.textContent = "+18";
+      badge.style.position = "absolute";
+      badge.style.top = "10px";
+      badge.style.right = "10px";
+      badge.style.background = "#ff4d4d";
+      badge.style.padding = "4px 8px";
+      badge.style.borderRadius = "8px";
+      badge.style.fontSize = "0.8rem";
+      badge.style.fontWeight = "600";
+
+      card.style.position = "relative";
+      card.appendChild(badge);
+    }
 
     const title = document.createElement("h3");
     title.textContent = juego.titulo;
@@ -69,3 +85,10 @@ function cargarGeneros(data) {
     }
   };
 }
+
+document.getElementById("search").addEventListener("input", (e) => {
+  const texto = e.target.value.toLowerCase();
+  mostrarJuegos(
+    juegosData.filter((j) => j.titulo.toLowerCase().includes(texto)),
+  );
+});
