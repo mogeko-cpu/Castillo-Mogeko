@@ -6,6 +6,7 @@
     "descripcionCorta": "Descripcion corta del juego.",
     "descripcionLarga": "Descripcion mas detallada del juego.",
     "adult": false,
+    "imagen": "assets/images/juegos/juego-ejemplo.jpg",
     "descarga": "https://ejemplo.com/patch.zip",
     "instrucciones": "Aqui explicas donde va el parche."
   },
@@ -16,6 +17,7 @@
     "descripcionCorta": "Descripcion breve del juego +18.",
     "descripcionLarga": "Descripcion completa del juego +18.",
     "adult": true,
+    "imagen": "assets/images/juegos/vn-18.jpg",
     "descarga": "https://ejemplo.com/patch18.zip",
     "instrucciones": "Aqui van las instrucciones del parche +18."
   }

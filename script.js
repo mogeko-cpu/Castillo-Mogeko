@@ -42,17 +42,25 @@ function revealAdult(card, game) {
 }
 
 function openModal(game) {
+  const modal = document.getElementById("modal");
+  const content = modal.querySelector(".modal-content");
+
+  // fondo del modal
+  content.style.setProperty("--modal-bg", `url(${game.imagen})`);
+
+  content.style.backgroundImage = `url(${game.imagen})`;
+
   document.getElementById("modal-title").textContent = game.titulo;
   document.getElementById("modal-tags").textContent = game.generos.join(" · ");
   document.getElementById("modal-desc").textContent = game.descripcionLarga;
 
-  const link = document.querySelector(".modal-content a");
+  const link = content.querySelector("a");
   link.href = game.descarga;
 
-  document.querySelector(".modal-content h4 + p").textContent =
+  document.getElementById("modal-instructions").textContent =
     game.instrucciones;
 
-  document.getElementById("modal").style.display = "block";
+  modal.style.display = "block";
 }
 
 function closeModal() {
