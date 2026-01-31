@@ -45,7 +45,7 @@ function openModal(game) {
   const modal = document.getElementById("modal");
   const content = modal.querySelector(".modal-content");
 
-  // 👇 ESTA LINEA ES CRITICA
+  // esta es la línea que falta en tu repo
   content.style.setProperty("--modal-bg", `url(${game.imagen})`);
 
   document.getElementById("modal-title").textContent = game.titulo;
