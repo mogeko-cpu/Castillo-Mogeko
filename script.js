@@ -1,59 +1,47 @@
-const juegosContainer = document.getElementById("juegos");
-const filterGenero = document.getElementById("filterGenero");
-const searchInput = document.getElementById("search");
-const clearFiltersBtn = document.getElementById("clearFilters");
-
-const warningModal = document.getElementById("warning");
-const acceptWarningBtn = document.getElementById("acceptWarning");
-
-const gameModal = document.getElementById("gameModal");
-const closeGameBtn = document.getElementById("closeGame");
-
-let juegos = [];
-
-acceptWarningBtn.addEventListener("click", () => {
-  warningModal.classList.remove("active");
-});
-
-closeGameBtn.addEventListener("click", () => {
-  gameModal.classList.remove("active");
-});
+let juegosData = [];
 
 fetch("data/juegos.json")
   .then((res) => res.json())
   .then((data) => {
-    juegos = data;
-    cargarGeneros();
-    mostrarJuegos(juegos);
+    juegosData = data;
+    cargarGeneros(data);
+    mostrarJuegos(data);
   });
-
-function cargarGeneros() {
-  const generos = new Set();
-
-  juegos.forEach((j) => j.generos.forEach((g) => generos.add(g)));
-
-  generos.forEach((g) => {
-    const option = document.createElement("option");
-    option.value = g;
-    option.textContent = g;
-    filterGenero.appendChild(option);
-  });
-}
 
 function mostrarJuegos(lista) {
-  juegosContainer.innerHTML = "";
+  const contenedor = document.getElementById("juegos");
+  contenedor.innerHTML = "";
 
   lista.forEach((juego) => {
     const card = document.createElement("div");
-    card.className = "card" + (juego.adult ? " adult" : "");
-
-    card.innerHTML = `
-      <img src="${juego.imagen}">
-      <h4>${juego.titulo}</h4>
-    `;
-
+    card.className = "card";
     card.onclick = () => abrirJuego(juego);
-    juegosContainer.appendChild(card);
+
+    const img = document.createElement("img");
+    img.src = juego.imagen;
+    if (juego.adult) {
+      img.classList.add("blur");
+
+      const badge = document.createElement("div");
+      badge.textContent = "+18";
+      badge.style.position = "absolute";
+      badge.style.top = "10px";
+      badge.style.right = "10px";
+      badge.style.background = "#ff4d4d";
+      badge.style.padding = "4px 8px";
+      badge.style.borderRadius = "8px";
+      badge.style.fontSize = "0.8rem";
+      badge.style.fontWeight = "600";
+
+      card.style.position = "relative";
+      card.appendChild(badge);
+    }
+
+    const title = document.createElement("h3");
+    title.textContent = juego.titulo;
+
+    card.append(img, title);
+    contenedor.appendChild(card);
   });
 }
 
@@ -64,34 +52,43 @@ function abrirJuego(juego) {
   document.getElementById("modalInstrucciones").textContent =
     juego.instrucciones;
   document.getElementById("modalDescarga").href = juego.descarga;
-  document.getElementById("modalBg").style.backgroundImage =
-    `url(${juego.imagen})`;
 
-  gameModal.classList.add("active");
+  document.getElementById("gameModal").classList.add("active");
 }
 
-function aplicarFiltros() {
-  let resultado = juegos;
-
-  const texto = searchInput.value.toLowerCase();
-  const genero = filterGenero.value;
-
-  if (texto) {
-    resultado = resultado.filter((j) => j.titulo.toLowerCase().includes(texto));
-  }
-
-  if (genero !== "todos") {
-    resultado = resultado.filter((j) => j.generos.includes(genero));
-  }
-
-  mostrarJuegos(resultado);
+function closeGame() {
+  document.getElementById("gameModal").classList.remove("active");
 }
 
-searchInput.addEventListener("input", aplicarFiltros);
-filterGenero.addEventListener("change", aplicarFiltros);
+function closeWarning() {
+  document.getElementById("warning").classList.remove("active");
+}
 
-clearFiltersBtn.addEventListener("click", () => {
-  searchInput.value = "";
-  filterGenero.value = "todos";
-  mostrarJuegos(juegos);
+function cargarGeneros(data) {
+  const select = document.getElementById("filterGenero");
+  const generos = new Set();
+
+  data.forEach((j) => j.generos.forEach((g) => generos.add(g)));
+
+  generos.forEach((g) => {
+    const option = document.createElement("option");
+    option.value = g;
+    option.textContent = g;
+    select.appendChild(option);
+  });
+
+  select.onchange = () => {
+    if (select.value === "todos") {
+      mostrarJuegos(juegosData);
+    } else {
+      mostrarJuegos(juegosData.filter((j) => j.generos.includes(select.value)));
+    }
+  };
+}
+
+document.getElementById("search").addEventListener("input", (e) => {
+  const texto = e.target.value.toLowerCase();
+  mostrarJuegos(
+    juegosData.filter((j) => j.titulo.toLowerCase().includes(texto)),
+  );
 });
