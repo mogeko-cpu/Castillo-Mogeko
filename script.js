@@ -43,10 +43,18 @@ function mostrarJuegos(lista) {
 function abrirJuego(juego) {
   document.getElementById("modalTitulo").textContent = juego.titulo;
   document.getElementById("modalDescripcion").textContent =
-    juego.descripcionLarga;
+    juego.descripcionCorta;
   document.getElementById("modalInstrucciones").textContent =
     juego.instrucciones;
   document.getElementById("modalDescarga").href = juego.descarga;
+
+  // Imagen de fondo
+  const bgImg = document.getElementById("modalBgImage");
+  bgImg.src = juego.imagen;
+
+  // +18
+  const adultBadge = document.getElementById("modalAdult");
+  adultBadge.style.display = juego.adult ? "block" : "none";
 
   document.getElementById("gameModal").classList.add("active");
   document.body.classList.add("modal-open");

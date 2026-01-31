@@ -209,31 +209,56 @@ footer a {
   color: var(--accent);
 }
 
-/* Modal de descarga */
+/* Modal descarga con imagen de fondo */
 .modal-download {
+  position: relative;
   max-width: 420px;
   width: 100%;
   background: #0f0f0f;
   padding: 25px;
   border-radius: 16px;
   text-align: center;
+  overflow: hidden;
 }
 
-.modal-download h2 {
-  margin-top: 0;
-  color: var(--accent);
+/* Imagen de fondo */
+.modal-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
-.modal-download p {
-  font-size: 0.95rem;
-  color: var(--text-soft);
+.modal-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(8px) brightness(0.25);
+}
+
+/* Contenido encima */
+.modal-download > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* +18 badge */
+.modal-adult {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff4d4d;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: none;
 }
 
 /* Instrucciones */
 .modal-instrucciones {
   margin: 15px 0;
   padding: 12px;
-  background: #1a1a1a;
+  background: rgba(0, 0, 0, 0.55);
   border-radius: 10px;
   text-align: left;
   font-size: 0.9rem;
@@ -263,5 +288,5 @@ footer a {
 .modal-note {
   margin-top: 12px;
   font-size: 0.75rem;
-  opacity: 0.6;
+  opacity: 0.7;
 }
