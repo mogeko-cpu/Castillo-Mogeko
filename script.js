@@ -1,113 +1,104 @@
-let juegosData = [];
+document.addEventListener("DOMContentLoaded", () => {
+  const gamesContainer = document.getElementById("games");
+  const genreFilter = document.getElementById("genreFilter");
 
-/* Bloquear scroll por advertencia inicial */
-document.body.classList.add("modal-open");
+  let gamesData = [];
 
-fetch("data/juegos.json")
-  .then((res) => res.json())
-  .then((data) => {
-    juegosData = data;
-    cargarGeneros(data);
-    mostrarJuegos(data);
-  });
+  fetch("games.json")
+    .then((res) => res.json())
+    .then((data) => {
+      gamesData = data;
+      cargarGeneros();
+      mostrarJuegos(gamesData);
+    });
 
-function mostrarJuegos(lista) {
-  const contenedor = document.getElementById("juegos");
-  contenedor.innerHTML = "";
+  /* =========================
+     GENEROS
+  ==========================*/
+  function cargarGeneros() {
+    const generos = new Set();
 
-  lista.forEach((juego) => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.onclick = () => abrirJuego(juego);
+    gamesData.forEach((juego) => {
+      juego.generos.forEach((g) => generos.add(g));
+    });
 
-    const img = document.createElement("img");
-    img.src = juego.imagen;
+    generos.forEach((genero) => {
+      const option = document.createElement("option");
+      option.value = genero;
+      option.textContent = genero;
+      genreFilter.appendChild(option);
+    });
+  }
 
-    if (juego.adult) {
-      img.classList.add("blur");
+  /* =========================
+     MOSTRAR JUEGOS
+  ==========================*/
+  function mostrarJuegos(lista) {
+    gamesContainer.innerHTML = "";
 
-      const badge = document.createElement("div");
-      badge.className = "badge";
-      badge.textContent = "+18";
-      card.appendChild(badge);
-    }
+    lista.forEach((juego) => {
+      const card = document.createElement("div");
+      card.className = "game-card";
 
-    const title = document.createElement("h3");
-    title.textContent = juego.titulo;
+      if (juego.adult) card.classList.add("adult");
 
-    card.append(img, title);
-    contenedor.appendChild(card);
-  });
-}
+      card.innerHTML = `
+        <img src="${juego.imagen}" alt="${juego.titulo}">
+        ${juego.adult ? `<span class="adult-badge">+18</span>` : ""}
+        <h3>${juego.titulo}</h3>
+        <p>${juego.descripcionCorta}</p>
+      `;
 
-function abrirJuego(juego) {
-  document.getElementById("modalTitulo").textContent = juego.titulo;
-  document.getElementById("modalDescripcion").textContent =
-    juego.descripcionCorta;
-  document.getElementById("modalInstrucciones").textContent =
-    juego.instrucciones;
-  document.getElementById("modalDescarga").href = juego.descarga;
+      card.onclick = () => abrirJuego(juego);
+      gamesContainer.appendChild(card);
+    });
+  }
 
-  /* Imagen fondo modal */
-  document.getElementById("modalBgImage").src = juego.imagen;
+  /* =========================
+     FILTROS
+  ==========================*/
+  window.filterGames = function () {
+    const genero = genreFilter.value;
+    if (!genero) return mostrarJuegos(gamesData);
 
-  /* +18 */
-  const adultBadge = document.getElementById("modalAdult");
-  adultBadge.style.display = juego.adult ? "block" : "none";
+    const filtrados = gamesData.filter((j) => j.generos.includes(genero));
 
-  document.getElementById("gameModal").classList.add("active");
-  document.body.classList.add("modal-open");
-}
+    mostrarJuegos(filtrados);
+  };
 
-function closeGame() {
-  document.getElementById("gameModal").classList.remove("active");
-  document.body.classList.remove("modal-open");
-}
+  window.resetFilter = function () {
+    genreFilter.value = "";
+    mostrarJuegos(gamesData);
+  };
 
-function closeWarning() {
-  document.getElementById("warning").classList.remove("active");
-  document.body.classList.remove("modal-open");
-}
+  /* =========================
+     MODAL
+  ==========================*/
+  window.abrirJuego = function (juego) {
+    document.getElementById("modalTitulo").textContent = juego.titulo;
+    document.getElementById("modalDescripcion").textContent =
+      juego.descripcionLarga;
+    document.getElementById("modalInstrucciones").textContent =
+      juego.instrucciones;
+    document.getElementById("modalDescarga").href = juego.descarga;
 
-function cargarGeneros(data) {
-  const select = document.getElementById("filterGenero");
-  const generos = new Set();
+    const bg = document.getElementById("modalBg");
+    bg.style.backgroundImage = `url(${juego.imagen})`;
 
-  data.forEach((j) => j.generos.forEach((g) => generos.add(g)));
+    const adultIcon = document.getElementById("adultIcon");
+    adultIcon.style.display = juego.adult ? "inline-block" : "none";
 
-  generos.forEach((g) => {
-    const option = document.createElement("option");
-    option.value = g;
-    option.textContent = g;
-    select.appendChild(option);
-  });
+    document.getElementById("gameModal").style.display = "flex";
+  };
 
-  select.onchange = aplicarFiltros;
-}
+  window.closeGame = function () {
+    document.getElementById("gameModal").style.display = "none";
+  };
 
-/* Buscador */
-document.getElementById("search").addEventListener("input", aplicarFiltros);
-
-/* Limpiar filtros */
-document.getElementById("clearFilters").addEventListener("click", () => {
-  document.getElementById("filterGenero").value = "todos";
-  document.getElementById("search").value = "";
-  mostrarJuegos(juegosData);
+  /* =========================
+     ADVERTENCIA
+  ==========================*/
+  window.acceptWarning = function () {
+    document.getElementById("warning").style.display = "none";
+  };
 });
-
-function aplicarFiltros() {
-  const genero = document.getElementById("filterGenero").value;
-  const texto = document.getElementById("search").value.toLowerCase();
-
-  let filtrados = juegosData;
-
-  if (genero !== "todos") {
-    filtrados = filtrados.filter((j) => j.generos.includes(genero));
-  }
-
-  if (texto) {
-    filtrados = filtrados.filter((j) => j.titulo.toLowerCase().includes(texto));
-  }
-
-  mostrarJuegos(filtrados);
-}
