@@ -249,8 +249,9 @@ footer a {
 
 .modal-body {
   padding: 25px 30px;
-  overflow-y: auto; /* 🔥 SCROLL */
+  overflow-y: auto;
   flex: 1;
+  min-height: 0; /* 🔥 ESTA ES LA MAGIA */
 }
 
 /* Contenido encima */
