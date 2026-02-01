@@ -22,5 +22,17 @@
     "imagen": "assets/images/juegos/vn-18.jpg",
     "descarga": "https://drive.google.com/drive/folders/1JEdwbizBom2A95GooUWuHzoAn3lZ_D1b",
     "instrucciones": "Esto es un parche para el juego YKMET: Strade [Debes comprarlo en Steam o itch.io]. Descarga el archivo, descomprímelo [con winrar] y copia los archivos en la carpeta llamada 'Game' para aplicar el parche."
+  },
+  {
+    "id": "B-M",
+    "titulo": "BloodMoney!",
+    "creador": "shroomychrist",
+    "generos": ["VN", "Horror", "Gore"],
+    "descripcionCorta": "Necesitas 25.000 dolares para una operacion urgente, pero no tienes ni un centavo... Todo parece perdido hasta que encuentras a un hombre en un stand",
+    "descripcionLarga": "¿que haras?",
+    "adult": false,
+    "imagen": "assets/images/juegos/B_M.jpg",
+    "descarga": "https://drive.google.com/drive/folders/1FOVbPIlGIPkjCZLZUKBZZkcjInmq4oG2",
+    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
   }
 ]
