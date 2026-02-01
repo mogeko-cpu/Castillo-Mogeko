@@ -42,8 +42,6 @@
         </select>
 
         <input type="text" id="search" placeholder="Buscar juego..." />
-
-        <button id="clearFilters">Ver todos</button>
       </div>
     </header>
 
@@ -60,7 +58,10 @@
 
           <h2 id="modalTitulo"></h2>
           <p id="modalGeneros" class="modal-generos"></p>
-          <p id="modalCreador" class="modal-creador"></p>
+          <p class="modal-creador">
+            Creador:
+            <a id="modalCreador" target="_blank"></a>
+          </p>
         </div>
 
         <div class="modal-right">
@@ -75,6 +76,9 @@
 
           <a id="modalDescarga" target="_blank" class="download-btn">
             ⬇ Descargar ⬇
+          </a>
+          <a id="modalOriginal" target="_blank" class="download-btn secondary">
+            🎮 Juego original
           </a>
 
           <p class="modal-note">
