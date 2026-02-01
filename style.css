@@ -363,7 +363,10 @@ footer a {
   background: #0f0f0f;
 }
 
-.modal-right > * {
+.modal-right > .modal-desc,
+.modal-right > .modal-instrucciones,
+.modal-right > .download-btn,
+.modal-right > .modal-note {
   max-width: 520px;
   width: 100%;
 }
