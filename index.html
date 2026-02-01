@@ -36,10 +36,15 @@
       <h1>Castillo Mogeko</h1>
       <p>¡Traducciones NO-OFICIALES al español!</p>
 
-      <select id="filterGenero">
+      <div class="filters">
+        <select id="filterGenero">
+          <option value="todos">Todos los géneros</option>
+        </select>
+
         <input type="text" id="search" placeholder="Buscar juego..." />
+
         <button id="clearFilters">Ver todos</button>
-      </select>
+      </div>
     </header>
 
     <main id="juegos" class="grid"></main>
