@@ -46,41 +46,5 @@
     "imagen": "assets/images/juegos/B_T_D.jpg",
     "descarga": "https://drive.google.com/drive/folders/16fVOfsEc1MmMD89FHtnFjtKRZjw3ln8A",
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
-  },
-  {
-    "id": "B-T-D4",
-    "titulo": "TEST3",
-    "creador": "Gatobob/dirtymurdergames",
-    "generos": ["VN", "Horror", "NSFW", "Gore"],
-    "descripcionCorta": "Tres caminos, múltiples destinos. Tus decisiones forjarán tu final. Elige bajo tu propio riesgo.",
-    "descripcionLarga": "",
-    "adult": true,
-    "imagen": "assets/images/juegos/B_T_D.jpg",
-    "descarga": "",
-    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
-  },
-  {
-    "id": "B-T-D3",
-    "titulo": "TEST2",
-    "creador": "Gatobob/dirtymurdergames",
-    "generos": ["VN", "Horror", "NSFW", "Gore"],
-    "descripcionCorta": "Tres caminos, múltiples destinos. Tus decisiones forjarán tu final. Elige bajo tu propio riesgo.",
-    "descripcionLarga": "",
-    "adult": true,
-    "imagen": "assets/images/juegos/B_T_D.jpg",
-    "descarga": "",
-    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
-  },
-  {
-    "id": "B-T-D2",
-    "titulo": "TEST1",
-    "creador": "Gatobob/dirtymurdergames",
-    "generos": ["VN", "Horror", "NSFW", "Gore"],
-    "descripcionCorta": "Tres caminos, múltiples destinos. Tus decisiones forjarán tu final. Elige bajo tu propio riesgo.",
-    "descripcionLarga": "",
-    "adult": true,
-    "imagen": "assets/images/juegos/B_T_D.jpg",
-    "descarga": "",
-    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
   }
 ]
