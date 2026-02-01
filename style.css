@@ -5,10 +5,14 @@
   --accent-soft: #e2c6ff;
   --text-main: #ffffff;
   --text-soft: #cfcfcf;
+  --font-main: "Poppins", sans-serif;
+  --font-pixel: "Press Start 2P", monospace;
 }
 
 * {
   box-sizing: border-box;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -451,4 +455,18 @@ footer a {
 .warning-accept:active {
   transform: translateY(0);
   box-shadow: 0 6px 18px rgba(255, 90, 90, 0.3);
+}
+
+/* ========================= */
+/* FUENTE PIXEL (8-BITS)     */
+/* ========================= */
+
+header h1,
+.modal-left h2,
+.modal-right h3,
+.download-btn,
+.badge,
+.modal-adult {
+  font-family: var(--font-pixel);
+  letter-spacing: 1px;
 }
