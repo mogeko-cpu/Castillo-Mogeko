@@ -1,19 +1,16 @@
 let juegosData = [];
 
-/* Bloquear scroll por advertencia */
+/* Al cargar, bloquear scroll por advertencia */
 document.body.classList.add("modal-open");
 
-/* Cargar juegos */
 fetch("data/juegos.json")
   .then((res) => res.json())
   .then((data) => {
     juegosData = data;
     cargarGeneros(data);
     mostrarJuegos(data);
-  })
-  .catch((err) => console.error("Error cargando JSON:", err));
+  });
 
-/* ===== MOSTRAR CARDS ===== */
 function mostrarJuegos(lista) {
   const contenedor = document.getElementById("juegos");
   contenedor.innerHTML = "";
@@ -25,7 +22,6 @@ function mostrarJuegos(lista) {
 
     const img = document.createElement("img");
     img.src = juego.imagen;
-    img.alt = juego.titulo;
 
     if (juego.adult) {
       img.classList.add("blur");
@@ -44,17 +40,17 @@ function mostrarJuegos(lista) {
   });
 }
 
-/* ===== ABRIR MODAL ===== */
 function abrirJuego(juego) {
-  /* Texto */
   document.getElementById("modalTitulo").textContent = juego.titulo;
   document.getElementById("modalDescripcion").textContent =
-    juego.descripcionLarga || juego.descripcionCorta;
+    juego.descripcionCorta;
   document.getElementById("modalInstrucciones").textContent =
-    juego.instrucciones || "";
+    juego.instrucciones;
+  document.getElementById("modalDescarga").href = juego.descarga;
 
   /* Imagen */
-  document.getElementById("modalImagen").src = juego.imagen;
+  const bgImg = document.getElementById("modalBgImage");
+  bgImg.src = juego.imagen;
 
   /* +18 */
   const adultBadge = document.getElementById("modalAdult");
@@ -64,51 +60,43 @@ function abrirJuego(juego) {
   document.getElementById("modalGeneros").textContent =
     "Generos: " + juego.generos.join(", ");
 
-  /* ===== CREADOR (LINK) ===== */
-  const creador = document.getElementById("modalCreador");
-  creador.textContent = juego.Creador || "Desconocido";
+  /* CREADOR (LINK) */
+  const creadorLink = document.getElementById("modalCreador");
+  creadorLink.textContent = juego.creador || "Desconocido";
 
   if (juego.creadorUrl) {
-    creador.href = juego.creadorUrl;
-    creador.style.pointerEvents = "auto";
-    creador.style.opacity = "1";
+    creadorLink.href = juego.creadorUrl;
+    creadorLink.style.pointerEvents = "auto";
+    creadorLink.style.opacity = "1";
   } else {
-    creador.removeAttribute("href");
-    creador.style.pointerEvents = "none";
-    creador.style.opacity = "0.6";
+    creadorLink.removeAttribute("href");
+    creadorLink.style.pointerEvents = "none";
+    creadorLink.style.opacity = "0.6";
   }
 
-  /* ===== BOTON DESCARGA ===== */
-  const descargaBtn = document.getElementById("modalDescarga");
-  descargaBtn.href = juego.descarga;
-
-  /* ===== JUEGO ORIGINAL ===== */
+  /* JUEGO ORIGINAL */
   const originalBtn = document.getElementById("modalOriginal");
   if (juego.juegoOriginal) {
     originalBtn.href = juego.juegoOriginal;
-    originalBtn.style.display = "inline-block";
+    originalBtn.style.display = "block";
   } else {
     originalBtn.style.display = "none";
   }
 
-  /* Mostrar modal */
   document.getElementById("gameModal").classList.add("active");
   document.body.classList.add("modal-open");
 }
 
-/* ===== CERRAR MODAL ===== */
 function closeGame() {
   document.getElementById("gameModal").classList.remove("active");
   document.body.classList.remove("modal-open");
 }
 
-/* ===== CERRAR ADVERTENCIA ===== */
 function closeWarning() {
   document.getElementById("warning").classList.remove("active");
   document.body.classList.remove("modal-open");
 }
 
-/* ===== GENEROS ===== */
 function cargarGeneros(data) {
   const select = document.getElementById("filterGenero");
   const generos = new Set();
@@ -122,20 +110,19 @@ function cargarGeneros(data) {
     select.appendChild(option);
   });
 
-  select.addEventListener("change", aplicarFiltros);
+  select.onchange = aplicarFiltros;
 }
 
-/* ===== BUSCADOR INDEPENDIENTE ===== */
+/* Buscador independiente */
 document.getElementById("search").addEventListener("input", aplicarFiltros);
 
-/* ===== LIMPIAR FILTROS ===== */
+/* Limpiar filtros */
 document.getElementById("clearFilters").addEventListener("click", () => {
   document.getElementById("filterGenero").value = "todos";
   document.getElementById("search").value = "";
   mostrarJuegos(juegosData);
 });
 
-/* ===== APLICAR FILTROS ===== */
 function aplicarFiltros() {
   const genero = document.getElementById("filterGenero").value;
   const texto = document.getElementById("search").value.toLowerCase();

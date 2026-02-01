@@ -42,6 +42,8 @@
         </select>
 
         <input type="text" id="search" placeholder="Buscar juego..." />
+
+        <button id="clearFilters">Ver todos</button>
       </div>
     </header>
 
@@ -57,11 +59,8 @@
           <img id="modalBgImage" class="modal-image" alt="" />
 
           <h2 id="modalTitulo"></h2>
-          <p class="modal-creador">
-            Creador:
-            <a id="modalCreador" target="_blank"></a>
-          </p>
           <p id="modalGeneros" class="modal-generos"></p>
+          <p id="modalCreador" class="modal-creador"></p>
         </div>
 
         <div class="modal-right">
@@ -74,15 +73,9 @@
             <p id="modalInstrucciones"></p>
           </div>
 
-          <div class="modal-footer">
-            <a id="modalDescarga" class="btn primary" target="_blank">
-              ⬇ Descargar
-            </a>
-
-            <a id="modalOriginal" class="btn secondary" target="_blank">
-              🎮 Juego original
-            </a>
-          </div>
+          <a id="modalDescarga" target="_blank" class="download-btn">
+            ⬇ Descargar ⬇
+          </a>
 
           <p class="modal-note">
             Traduccion hecha por Mogeko. Apoya al creador original.
