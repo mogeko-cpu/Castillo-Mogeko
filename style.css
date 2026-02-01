@@ -275,16 +275,23 @@ footer a {
 
 /* Instrucciones */
 .modal-instrucciones {
-  margin: 15px 0;
-  padding: 12px;
   background: rgba(0, 0, 0, 0.55);
-  border-radius: 10px;
-  text-align: left;
+  padding: 16px 18px;
+  border-radius: 14px;
   font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.modal-instrucciones strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent);
 }
 
 /* Boton descarga */
 .download-btn {
+  max-width: 320px;
+  margin: 10px auto 0;
   display: block;
   margin-top: 15px;
   padding: 12px;
@@ -306,9 +313,9 @@ footer a {
 
 /* Nota */
 .modal-note {
-  margin-top: 12px;
-  font-size: 0.75rem;
-  opacity: 0.7;
+  text-align: center;
+  max-width: 420px;
+  opacity: 0.6;
 }
 
 /* ===== MODAL GRID ===== */
@@ -347,12 +354,18 @@ footer a {
 
 /* DERECHA (SCROLL REAL) */
 .modal-right {
-  padding: 25px 30px;
+  padding: 30px 25px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center; /* CENTRADO */
+  gap: 22px;
   background: #0f0f0f;
+}
+
+.modal-right > * {
+  max-width: 520px;
+  width: 100%;
 }
 
 /* Scroll bonito */
@@ -367,7 +380,13 @@ footer a {
 /* Descripcion */
 .modal-desc {
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.65;
+  text-align: left;
+  color: #e0e0e0;
+
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px 20px;
+  border-radius: 14px;
 }
 
 /* +18 */
