@@ -524,3 +524,25 @@ header h1,
   background: var(--accent);
   color: #000;
 }
+
+/* Link del creador */
+.modal-creador a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.modal-creador a:hover {
+  text-decoration: underline;
+}
+
+/* Botón secundario */
+.download-btn.secondary {
+  background: #222;
+  color: #fff;
+}
+
+.download-btn.secondary:hover {
+  background: var(--accent-soft);
+  color: #000;
+}

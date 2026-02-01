@@ -48,22 +48,43 @@ function abrirJuego(juego) {
     juego.instrucciones;
   document.getElementById("modalDescarga").href = juego.descarga;
 
-  // Imagen de fondo
+  /* Imagen */
   const bgImg = document.getElementById("modalBgImage");
   bgImg.src = juego.imagen;
 
-  // +18
+  /* +18 */
   const adultBadge = document.getElementById("modalAdult");
   adultBadge.style.display = juego.adult ? "block" : "none";
 
-  document.getElementById("gameModal").classList.add("active");
-  document.body.classList.add("modal-open");
-
+  /* Generos */
   document.getElementById("modalGeneros").textContent =
     "Generos: " + juego.generos.join(", ");
 
-  document.getElementById("modalCreador").textContent =
-    "Creador: " + (juego.creador || "Desconocido");
+  /* CREADOR (LINK) */
+  const creadorLink = document.getElementById("modalCreador");
+  creadorLink.textContent = juego.creador || "Desconocido";
+
+  if (juego.creadorUrl) {
+    creadorLink.href = juego.creadorUrl;
+    creadorLink.style.pointerEvents = "auto";
+    creadorLink.style.opacity = "1";
+  } else {
+    creadorLink.removeAttribute("href");
+    creadorLink.style.pointerEvents = "none";
+    creadorLink.style.opacity = "0.6";
+  }
+
+  /* JUEGO ORIGINAL */
+  const originalBtn = document.getElementById("modalOriginal");
+  if (juego.juegoOriginal) {
+    originalBtn.href = juego.juegoOriginal;
+    originalBtn.style.display = "block";
+  } else {
+    originalBtn.style.display = "none";
+  }
+
+  document.getElementById("gameModal").classList.add("active");
+  document.body.classList.add("modal-open");
 }
 
 function closeGame() {
@@ -92,7 +113,7 @@ function cargarGeneros(data) {
   select.onchange = aplicarFiltros;
 }
 
-/* Buscador */
+/* Buscador independiente */
 document.getElementById("search").addEventListener("input", aplicarFiltros);
 
 /* Limpiar filtros */
