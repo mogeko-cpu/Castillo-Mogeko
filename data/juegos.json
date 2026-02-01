@@ -28,11 +28,23 @@
     "titulo": "BloodMoney!",
     "creador": "shroomychrist",
     "generos": ["VN", "Horror", "Gore"],
-    "descripcionCorta": "Necesitas 25.000 dolares para una operacion urgente, pero no tienes ni un centavo... Todo parece perdido hasta que encuentras a un hombre en un stand",
+    "descripcionCorta": "Necesitas 25.000 dolares para una operacion urgente, pero no tienes ni un centavo... Todo parece perdido hasta que encuentras a un hombre en un stand.",
     "descripcionLarga": "¿que haras?",
     "adult": false,
     "imagen": "assets/images/juegos/B_M.jpg",
     "descarga": "https://drive.google.com/drive/folders/1FOVbPIlGIPkjCZLZUKBZZkcjInmq4oG2",
+    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
+  },
+  {
+    "id": "B-T-D",
+    "titulo": "Boyfriend To Death",
+    "creador": "Gatobob/dirtymurdergames",
+    "generos": ["VN", "Horror", "NSFW", "Gore"],
+    "descripcionCorta": "Tres caminos, múltiples destinos. Tus decisiones forjarán tu final. Elige bajo tu propio riesgo.",
+    "descripcionLarga": "",
+    "adult": true,
+    "imagen": "assets/images/juegos/B_T_D.jpg",
+    "descarga": "https://drive.google.com/drive/folders/16fVOfsEc1MmMD89FHtnFjtKRZjw3ln8A",
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
   }
 ]
