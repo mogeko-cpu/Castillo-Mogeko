@@ -14,9 +14,9 @@
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
     "year": 2023,
     "plataforma": "Windows",
-    "tamanio": "450 MB",
-    "version": "1.0.2",
-    "fechaAgregado": "2024-01-15"
+    "tamanio": "185.5 MB",
+    "version": "Final",
+    "fechaAgregado": "2026-03-02"
   },
   {
     "id": "Y-S",
@@ -33,9 +33,9 @@
     "instrucciones": "Esto es un parche para el juego YKMET: Strade [Debes comprarlo en Steam o itch.io]. Descarga el archivo, descomprímelo [con winrar] y copia los archivos en la carpeta llamada 'Game' para aplicar el parche.",
     "year": 2022,
     "plataforma": "Windows/Mac",
-    "tamanio": "280 MB",
+    "tamanio": "2.9 MB [Parche]",
     "version": "2.1.0",
-    "fechaAgregado": "2024-02-10"
+    "fechaAgregado": "2026-03-02"
   },
   {
     "id": "B-M",
@@ -52,9 +52,9 @@
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
     "year": 2021,
     "plataforma": "Windows",
-    "tamanio": "380 MB",
-    "version": "1.5.3",
-    "fechaAgregado": "2024-01-20"
+    "tamanio": "290 MB",
+    "version": "Final",
+    "fechaAgregado": "2026-03-02"
   },
   {
     "id": "B-T-D",
@@ -71,9 +71,9 @@
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
     "year": 2016,
     "plataforma": "Windows",
-    "tamanio": "520 MB",
-    "version": "2.0.1",
-    "fechaAgregado": "2024-02-05"
+    "tamanio": "195.5 MB",
+    "version": "Final",
+    "fechaAgregado": "2026-03-02"
   },
   {
     "id": "H-E-P",
@@ -88,10 +88,10 @@
     "imagen": "assets/images/juegos/H_E.jpg",
     "descarga": "https://www.mediafire.com/file/qkqnix7rjzqox6l/Human_Expenditure_Program%5Bespa%C3%B1ol%5D.rar/file",
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
-    "year": 2022,
+    "year": 2025,
     "plataforma": "Windows",
-    "tamanio": "410 MB",
+    "tamanio": "171 MB",
     "version": "1.2.0",
-    "fechaAgregado": "2024-02-15"
+    "fechaAgregado": "2026-03-02"
   }
 ]
