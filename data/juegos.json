@@ -64,7 +64,7 @@
     "generos": ["VN", "Horror", "Gore", "RPG"],
     "descripcionCorta": "Historia paralela a 'BloodMoney!' donde nos cuentan la historia de Eun-mi, la esposa de Harvey, la cual encierra a su esposo en un mundo digital para asi ganar dinero a costa de su sufrimiento... ¿Como terminara esta historia?",
     "descripcionLarga": "",
-    "adult": true,
+    "adult": false,
     "imagen": "assets/images/juegos/H_E.jpg",
     "descarga": "https://www.mediafire.com/file/qkqnix7rjzqox6l/Human_Expenditure_Program%5Bespa%C3%B1ol%5D.rar/file",
     "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
