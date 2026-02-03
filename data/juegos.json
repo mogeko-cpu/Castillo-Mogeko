@@ -7,11 +7,16 @@
     "juegoOriginal": "https://homieshouse.itch.io/clinical-trial",
     "generos": ["RPG", "Horror", "VN"],
     "descripcionCorta": "Historia de suspenso donde te inscribes a una prueba clínica por dinero.",
-    "descripcionLarga": "En este juego sigues a angel, un joven con TDAH que se inscribe en una prueba clínica para ganar dinero. Sin embargo, las cosas se tornan oscuras al pasar de los dias.",
+    "descripcionLarga": "En este juego sigues a Angel, un joven con TDAH que se inscribe en una prueba clínica para ganar dinero. Sin embargo, las cosas se tornan oscuras al pasar de los días. Explora un hospital misterioso, conoce personajes intrigantes y descubre los secretos detrás del experimento.",
     "adult": false,
     "imagen": "assets/images/juegos/juego-ejemplo.jpg",
     "descarga": "https://drive.google.com/drive/folders/1LnzuWDFWb5z5f00jvjx69U2XqXRnM4MU",
-    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
+    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
+    "year": 2023,
+    "plataforma": "Windows",
+    "tamanio": "450 MB",
+    "version": "1.0.2",
+    "fechaAgregado": "2024-01-15"
   },
   {
     "id": "Y-S",
@@ -20,12 +25,17 @@
     "creadorUrl": "https://www.dirtymurdergames.com/pgs/index.php",
     "juegoOriginal": "https://www.dirtymurdergames.com/pgs/ykmetstrade.php",
     "generos": ["VN", "Horror", "NSFW", "Gore"],
-    "descripcionCorta": "Despues de un largo dia, decides tomar un trago en un bar ¿Que podria salir mal?",
-    "descripcionLarga": "Decides tomar un trago en un bar, pero un hombre apuesto se coloca enfrente tuyo para socializar un poco, quien diria que esto tomaria un rumbo tan oscuro...",
+    "descripcionCorta": "Después de un largo día, decides tomar un trago en un bar ¿Qué podría salir mal?",
+    "descripcionLarga": "Decides tomar un trago en un bar, pero un hombre apuesto se coloca enfrente tuyo para socializar un poco. Quién diría que esto tomaría un rumbo tan oscuro... Enfrenta decisiones difíciles que afectarán tu destino en esta visual novel psicológica.",
     "adult": true,
     "imagen": "assets/images/juegos/vn-18.jpg",
     "descarga": "https://drive.google.com/drive/folders/1JEdwbizBom2A95GooUWuHzoAn3lZ_D1b",
-    "instrucciones": "Esto es un parche para el juego YKMET: Strade [Debes comprarlo en Steam o itch.io]. Descarga el archivo, descomprímelo [con winrar] y copia los archivos en la carpeta llamada 'Game' para aplicar el parche."
+    "instrucciones": "Esto es un parche para el juego YKMET: Strade [Debes comprarlo en Steam o itch.io]. Descarga el archivo, descomprímelo [con winrar] y copia los archivos en la carpeta llamada 'Game' para aplicar el parche.",
+    "year": 2022,
+    "plataforma": "Windows/Mac",
+    "tamanio": "280 MB",
+    "version": "2.1.0",
+    "fechaAgregado": "2024-02-10"
   },
   {
     "id": "B-M",
@@ -34,12 +44,17 @@
     "creadorUrl": "https://x.com/shroomychrist",
     "juegoOriginal": "https://shroomychrist-studios.itch.io/bloodmoney",
     "generos": ["VN", "Horror", "Gore"],
-    "descripcionCorta": "Necesitas 25.000 dolares para una operacion urgente, pero no tienes ni un centavo... Todo parece perdido hasta que encuentras a un hombre en un stand.",
-    "descripcionLarga": "¿que haras?",
+    "descripcionCorta": "Necesitas 25.000 dólares para una operación urgente, pero no tienes ni un centavo...",
+    "descripcionLarga": "Tu vida está en juego y necesitas dinero desesperadamente. Todo parece perdido hasta que encuentras un anuncio misterioso. ¿Qué harás para conseguir el dinero? Las decisiones que tomes determinarán si sobrevives... o no.",
     "adult": false,
     "imagen": "assets/images/juegos/B_M.jpg",
     "descarga": "https://drive.google.com/drive/folders/1FOVbPIlGIPkjCZLZUKBZZkcjInmq4oG2",
-    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
+    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
+    "year": 2021,
+    "plataforma": "Windows",
+    "tamanio": "380 MB",
+    "version": "1.5.3",
+    "fechaAgregado": "2024-01-20"
   },
   {
     "id": "B-T-D",
@@ -48,12 +63,17 @@
     "creadorUrl": "https://www.dirtymurdergames.com/pgs/index.php",
     "juegoOriginal": "https://www.dirtymurdergames.com/pgs/btd.php",
     "generos": ["VN", "Horror", "NSFW", "Gore"],
-    "descripcionCorta": "Tres caminos, múltiples destinos. Tus decisiones forjarán tu final. Elige bajo tu propio riesgo.",
-    "descripcionLarga": "",
+    "descripcionCorta": "Tres caminos, múltiples destinos. Tus decisiones forjarán tu final.",
+    "descripcionLarga": "Adéntrate en una serie de citas con personajes perturbadores. Cada elección cuenta y cada error puede ser fatal. Explora diferentes rutas y descubre todos los finales en esta visual novel de terror psicológico.",
     "adult": true,
     "imagen": "assets/images/juegos/B_T_D.jpg",
     "descarga": "https://drive.google.com/drive/folders/16fVOfsEc1MmMD89FHtnFjtKRZjw3ln8A",
-    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
+    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
+    "year": 2016,
+    "plataforma": "Windows",
+    "tamanio": "520 MB",
+    "version": "2.0.1",
+    "fechaAgregado": "2024-02-05"
   },
   {
     "id": "H-E-P",
@@ -62,11 +82,16 @@
     "creadorUrl": "https://x.com/shroomychrist",
     "juegoOriginal": "https://shroomychrist-studios.itch.io/human-expenditure-program",
     "generos": ["VN", "Horror", "Gore", "RPG"],
-    "descripcionCorta": "Historia paralela a 'BloodMoney!' donde nos cuentan la historia de Eun-mi, la esposa de Harvey, la cual encierra a su esposo en un mundo digital para asi ganar dinero a costa de su sufrimiento... ¿Como terminara esta historia?",
-    "descripcionLarga": "",
+    "descripcionCorta": "Historia paralela a 'BloodMoney!' donde Eun-mi encierra a su esposo en un mundo digital.",
+    "descripcionLarga": "Descubre la historia de Eun-mi, la esposa de Harvey, quien encierra a su esposo en un mundo digital para ganar dinero a costa de su sufrimiento. Una perspectiva diferente de los eventos de BloodMoney! con nuevos personajes y giros inesperados.",
     "adult": false,
     "imagen": "assets/images/juegos/H_E.jpg",
     "descarga": "https://www.mediafire.com/file/qkqnix7rjzqox6l/Human_Expenditure_Program%5Bespa%C3%B1ol%5D.rar/file",
-    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar."
+    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
+    "year": 2022,
+    "plataforma": "Windows",
+    "tamanio": "410 MB",
+    "version": "1.2.0",
+    "fechaAgregado": "2024-02-15"
   }
 ]

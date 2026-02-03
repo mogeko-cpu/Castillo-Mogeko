@@ -2,13 +2,22 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Castillo Mogeko</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Castillo Mogeko - Traducciones NO-OFICIALES de juegos al español"
+    />
+    <meta
+      name="keywords"
+      content="juegos, traducciones, español, horror, VN, RPG"
+    />
+    <title>Castillo Mogeko - Traducciones</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
   </head>
   <body>
     <!-- Fondo -->
@@ -21,82 +30,214 @@
         <p>
           Este sitio contiene juegos con contenido +18.
           <br />
-          Recomiendo ir con discrecion.
+          Recomiendo ir con discreción. Debes tener al menos 18 años para
+          continuar.
         </p>
 
         <div class="warning-actions">
-          <button class="warning-accept" onclick="closeWarning()">
-            ✔ Soy conciente de los riesgos
+          <button
+            class="warning-accept"
+            onclick="closeWarning()"
+            aria-label="Aceptar advertencia y continuar"
+          >
+            ✔ Soy consciente de los riesgos
           </button>
         </div>
       </div>
     </div>
 
     <header>
-      <h1>Castillo Mogeko</h1>
-      <p>¡Traducciones NO-OFICIALES al español!</p>
+      <div class="header-content">
+        <h1>Castillo Mogeko</h1>
+        <p>¡Traducciones NO-OFICIALES al español!</p>
 
-      <div class="filters">
-        <select id="filterGenero">
-          <option value="todos">Todos los géneros</option>
-        </select>
+        <div class="filters">
+          <div class="filter-group">
+            <label for="filterGenero" class="sr-only">Filtrar por género</label>
+            <select id="filterGenero" aria-label="Filtrar juegos por género">
+              <option value="todos">Todos los géneros</option>
+            </select>
+          </div>
 
-        <input type="text" id="search" placeholder="Buscar juego..." />
+          <div class="filter-group">
+            <label for="search" class="sr-only">Buscar juego</label>
+            <input
+              type="text"
+              id="search"
+              placeholder="Buscar juego..."
+              aria-label="Buscar juegos por título"
+            />
+          </div>
+
+          <div class="filter-group">
+            <label for="filterOrden" class="sr-only">Ordenar por</label>
+            <select id="filterOrden" aria-label="Ordenar juegos">
+              <option value="default">Ordenar por...</option>
+              <option value="titulo">Título (A-Z)</option>
+              <option value="titulo-desc">Título (Z-A)</option>
+              <option value="adult">+18 primero</option>
+              <option value="safe">Seguros primero</option>
+            </select>
+          </div>
+
+          <button
+            id="clearFilters"
+            class="btn-secondary"
+            aria-label="Limpiar todos los filtros"
+          >
+            🗑️ Limpiar
+          </button>
+        </div>
+
+        <div class="stats">
+          <span id="statsCount">0 juegos</span>
+          <span id="statsFiltered" class="hidden">
+            (<span id="filteredCount">0</span> filtrados)</span
+          >
+        </div>
       </div>
     </header>
 
-    <main id="juegos" class="grid"></main>
+    <main>
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Cargando juegos...</p>
+      </div>
+
+      <div id="juegos" class="grid"></div>
+
+      <div id="noResults" class="no-results hidden">
+        <p>😔 No se encontraron juegos con esos filtros.</p>
+        <button onclick="limpiarFiltros()" class="btn-secondary">
+          Ver todos los juegos
+        </button>
+      </div>
+    </main>
 
     <!-- Modal juego -->
-    <div id="gameModal" class="modal">
+    <div
+      id="gameModal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitulo"
+    >
       <div class="modal-content modal-download layout-grid">
         <!-- Panel izquierdo -->
         <div class="modal-left">
-          <div id="modalAdult" class="modal-adult">+18</div>
+          <div
+            id="modalAdult"
+            class="modal-adult"
+            aria-label="Contenido para adultos"
+          >
+            +18
+          </div>
 
           <img id="modalBgImage" class="modal-image" alt="" />
 
-          <h2 id="modalTitulo"></h2>
-          <p id="modalGeneros" class="modal-generos"></p>
-          <p class="modal-creador">
-            Creador:
-            <a id="modalCreador" target="_blank"></a>
-          </p>
+          <div class="modal-info">
+            <h2 id="modalTitulo"></h2>
+            <p id="modalGeneros" class="modal-generos"></p>
+            <p id="modalPlataforma" class="modal-plataforma"></p>
+            <p id="modalTamanio" class="modal-tamanio"></p>
+
+            <p class="modal-creador">
+              Creador:
+              <a
+                id="modalCreador"
+                target="_blank"
+                rel="noopener noreferrer"
+              ></a>
+            </p>
+
+            <button
+              id="btnFavorito"
+              class="btn-favorito"
+              onclick="toggleFavorito()"
+              aria-label="Añadir a favoritos"
+            >
+              ⭐ Añadir a favoritos
+            </button>
+          </div>
         </div>
 
         <div class="modal-right">
-          <span class="close" onclick="closeGame()">✖</span>
+          <button class="close" onclick="closeGame()" aria-label="Cerrar modal">
+            ✖
+          </button>
 
-          <p id="modalDescripcion" class="modal-desc"></p>
-
-          <div class="modal-instrucciones">
-            <strong>Instrucciones</strong>
-            <p id="modalInstrucciones"></p>
+          <div class="modal-section">
+            <h3>Descripción</h3>
+            <p id="modalDescripcion" class="modal-desc"></p>
           </div>
 
-          <a id="modalDescarga" target="_blank" class="download-btn">
-            ⬇ Descargar ⬇
-          </a>
-          <a id="modalOriginal" target="_blank" class="download-btn secondary">
-            🎮 Juego original
-          </a>
+          <div class="modal-section">
+            <h3>Instrucciones</h3>
+            <div class="modal-instrucciones">
+              <p id="modalInstrucciones"></p>
+            </div>
+          </div>
+
+          <div class="modal-buttons">
+            <a
+              id="modalDescarga"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="download-btn primary"
+            >
+              ⬇ Descargar Traducción ⬇
+            </a>
+            <a
+              id="modalOriginal"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="download-btn secondary"
+            >
+              🎮 Juego Original (Apoya al creador)
+            </a>
+          </div>
+
+          <div class="modal-section">
+            <h3>Detalles</h3>
+            <div class="modal-details">
+              <p><strong>Versión:</strong> <span id="modalVersion"></span></p>
+              <p><strong>Año:</strong> <span id="modalYear"></span></p>
+              <p><strong>Traductor:</strong> Mogeko</p>
+            </div>
+          </div>
 
           <p class="modal-note">
-            Traduccion hecha por Mogeko. Apoya al creador original.
+            Traducción hecha por Mogeko. Apoya al creador original.
           </p>
         </div>
       </div>
     </div>
 
     <footer>
-      <p>
-        📩 Reportar errores/Peticiones/Comisiones:
-        <a href="https://x.com/Mogeko_AN" target="_blank">X / Twitter</a>
-      </p>
-      <p>
-        Ninguna imagen en esta pagina fue hecha por mi, creditos a sus
-        respectivos autores
-      </p>
+      <div class="footer-content">
+        <p>
+          📩 Reportar errores/Peticiones/Comisiones:
+          <a
+            href="https://x.com/Mogeko_AN"
+            target="_blank"
+            rel="noopener noreferrer"
+            >X / Twitter</a
+          >
+        </p>
+        <p>
+          Ninguna imagen en esta página fue hecha por mí, créditos a sus
+          respectivos autores. Este sitio es solo para fines educativos y de
+          preservación.
+        </p>
+        <p class="footer-links">
+          <button onclick="mostrarFavoritos()" class="btn-link">
+            ⭐ Mis favoritos (<span id="favoritosCount">0</span>)
+          </button>
+          <button onclick="toggleModoOscuro()" class="btn-link">
+            🌙 Modo oscuro
+          </button>
+        </p>
+      </div>
     </footer>
 
     <script src="script.js"></script>
