@@ -14,6 +14,7 @@
   --font-pixel: "Press Start 2P", monospace;
   --border-radius: 14px;
   --transition: all 0.3s ease;
+  --header-height: 180px; /* Nueva variable para altura del header */
 }
 
 /* Modo claro (opcional) */
@@ -41,12 +42,12 @@ body {
   color: var(--text-main);
   background: #000;
   min-height: 100vh;
+  padding-top: var(--header-height); /* Añadir padding para header fixed */
 }
 
 /* Bloqueo de scroll cuando hay modal */
 body.modal-open {
   overflow: hidden;
-  padding-right: 15px; /* Evita salto al ocultar scroll */
 }
 
 /* Utilitarios */
@@ -75,26 +76,35 @@ body.modal-open {
   transition: filter 0.5s ease;
 }
 
-/* Header */
+/* ===== HEADER FIXED ===== */
 header {
+  position: fixed; /* Cambiado de sticky a fixed */
+  top: 0;
+  left: 0;
+  right: 0;
   text-align: center;
-  padding: 30px 20px;
+  padding: 20px 20px 15px;
   background: var(--bg-dark);
   backdrop-filter: blur(10px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: sticky;
-  top: 0;
   z-index: 100;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-content {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
+/* Título más compacto para header fijo */
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 1.8rem; /* Reducido de 2.5rem */
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -103,16 +113,16 @@ header h1 {
 }
 
 header p {
-  margin-top: 8px;
+  margin-top: 5px; /* Reducido de 8px */
   color: var(--accent-soft);
-  font-size: 1.1rem;
+  font-size: 0.95rem; /* Reducido de 1.1rem */
 }
 
-/* Controles */
+/* Controles más compactos */
 .filters {
-  margin-top: 25px;
+  margin-top: 15px; /* Reducido de 25px */
   display: flex;
-  gap: 12px;
+  gap: 10px; /* Reducido de 12px */
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
@@ -125,18 +135,18 @@ header p {
 .filters select,
 .filters input,
 .filters button {
-  padding: 12px 16px;
+  padding: 10px 14px; /* Reducido de 12px 16px */
   border-radius: var(--border-radius);
   border: 2px solid rgba(255, 255, 255, 0.1);
   background: rgba(0, 0, 0, 0.7);
   color: var(--text-main);
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.9rem; /* Reducido de 0.95rem */
   transition: var(--transition);
 }
 
 .filters select {
-  min-width: 180px;
+  min-width: 160px; /* Reducido de 180px */
   cursor: pointer;
   appearance: none;
   padding-right: 40px;
@@ -160,7 +170,7 @@ header p {
 }
 
 #search {
-  min-width: 250px;
+  min-width: 220px; /* Reducido de 250px */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: left 12px center;
@@ -169,7 +179,7 @@ header p {
 }
 
 .btn-secondary {
-  padding: 12px 20px;
+  padding: 10px 16px; /* Reducido de 12px 20px */
   border-radius: var(--border-radius);
   border: none;
   background: linear-gradient(135deg, #333, #222);
@@ -192,9 +202,9 @@ header p {
 
 /* Stats */
 .stats {
-  margin-top: 15px;
+  margin-top: 10px; /* Reducido de 15px */
   color: var(--text-soft);
-  font-size: 0.9rem;
+  font-size: 0.85rem; /* Reducido de 0.9rem */
 }
 
 .stats span {
@@ -202,6 +212,10 @@ header p {
   padding: 4px 10px;
   border-radius: 20px;
 }
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+/* El body ya tiene padding-top: var(--header-height) */
+/* No necesitamos margin-top adicional en main */
 
 /* Loading */
 .loading {
@@ -238,7 +252,7 @@ header p {
   margin-bottom: 20px;
 }
 
-/* Grid */
+/* Grid - SIN padding-top adicional */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -343,16 +357,16 @@ header p {
   font-size: 0.7rem;
 }
 
-/* Modal */
+/* Modal - CON Z-INDEX MÁS ALTO QUE HEADER */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.97);
   display: none;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  z-index: 99999;
+  z-index: 1000; /* Mayor que header (100) */
   animation: fadeIn 0.3s ease;
 }
 
@@ -787,24 +801,45 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 220px; /* Más alto en móvil por filtros en columna */
+  }
+
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 15px;
     padding: 20px;
   }
 
+  /* Header en móvil */
+  header {
+    padding: 15px 15px 10px;
+    height: var(--header-height);
+  }
+
   header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem; /* Más pequeño en móvil */
+  }
+
+  header p {
+    font-size: 0.85rem;
   }
 
   .filters {
     flex-direction: column;
     align-items: stretch;
+    margin-top: 12px;
+    gap: 8px;
   }
 
   .filters select,
   .filters input {
     width: 100%;
+    padding: 12px 14px; /* Un poco más alto para mejor tactil */
+  }
+
+  #search {
+    min-width: auto;
   }
 
   .modal-content {
@@ -822,6 +857,10 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --header-height: 240px; /* Aún más alto si es necesario */
+  }
+
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -841,6 +880,15 @@ footer a:hover {
     flex-direction: column;
     gap: 10px;
   }
+
+  /* Header ultra compacto en móviles muy pequeños */
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .stats {
+    font-size: 0.8rem;
+  }
 }
 
 /* Accesibilidad */
@@ -856,4 +904,22 @@ footer a:hover {
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
+}
+
+/* Asegurar que modales estén sobre header */
+.modal {
+  z-index: 1000;
+}
+
+#warning.modal {
+  z-index: 2000; /* Advertencia sobre todo */
+}
+
+#gameModal.modal {
+  z-index: 1500; /* Juego modal sobre header pero bajo advertencia */
+}
+
+/* Header siempre bajo modales cuando están activos */
+body.modal-open header {
+  z-index: 100;
 }
