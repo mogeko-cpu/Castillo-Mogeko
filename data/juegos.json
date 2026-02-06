@@ -24,7 +24,7 @@
     "creador": "Gatobob/dirtymurdergames",
     "creadorUrl": "https://www.dirtymurdergames.com/pgs/index.php",
     "juegoOriginal": "https://www.dirtymurdergames.com/pgs/ykmetstrade.php",
-    "generos": ["VN", "Horror", "NSFW", "Gore"],
+    "generos": ["VN", "Horror", "NSFW", "Gore", "Puzzle"],
     "descripcionCorta": "Después de un largo día, decides tomar un trago en un bar ¿Qué podría salir mal?",
     "descripcionLarga": "Decides tomar un trago en un bar, pero un hombre apuesto se coloca enfrente tuyo para socializar un poco. Quién diría que esto tomaría un rumbo tan oscuro... Enfrenta decisiones difíciles que afectarán tu destino en esta visual novel psicológica.",
     "adult": true,
@@ -62,7 +62,7 @@
     "creador": "Gatobob/dirtymurdergames",
     "creadorUrl": "https://www.dirtymurdergames.com/pgs/index.php",
     "juegoOriginal": "https://www.dirtymurdergames.com/pgs/btd.php",
-    "generos": ["VN", "Horror", "NSFW", "Gore"],
+    "generos": ["VN", "Horror", "NSFW", "Gore", "Puzzle"],
     "descripcionCorta": "Tres caminos, múltiples destinos. Tus decisiones forjarán tu final.",
     "descripcionLarga": "Adéntrate en una serie de citas con personajes perturbadores. Cada elección cuenta y cada error puede ser fatal. Explora diferentes rutas y descubre todos los finales en esta visual novel de terror psicológico.",
     "adult": true,
@@ -93,5 +93,24 @@
     "tamanio": "171 MB",
     "version": "1.2.0",
     "fechaAgregado": "2026-03-02"
+  },
+  {
+    "id": "G-JB",
+    "titulo": "Good Job",
+    "creador": "Kathinka.png",
+    "creadorUrl": "https://x.com/KathinkaPng",
+    "juegoOriginal": "https://kathinkapng.itch.io/good-job",
+    "generos": ["Horror", "Gore", "RPG", "Puzzle", "Yuri"],
+    "descripcionCorta": "Ellen es una joven trabajadora la cual desprecia a su compañera de trabajo, Olivia, la cual podras matar de diferentes formas sin concecuencias, despues de todo estan atrapadas en un bucle temporal... ¿verdad?",
+    "descripcionLarga": "",
+    "adult": false,
+    "imagen": "assets/images/juegos/G_JB.jpg",
+    "descarga": "https://www.mediafire.com/file/qirqzgmo6eukxge/Good_Job_%255BEspa%25C3%25B1ol_v1%255D.rar/file",
+    "instrucciones": "Este no es un parche, es el juego completo. Descarga el archivo, descomprímelo [con winrar] y ejecuta el archivo .exe para jugar.",
+    "year": 2023,
+    "plataforma": "Windows",
+    "tamanio": "134 MB",
+    "version": "2.0",
+    "fechaAgregado": "2026-02-05"
   }
 ]
